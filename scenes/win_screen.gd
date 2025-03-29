@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 
 @export var next_scene: T.GameScreens
 @export var wait_time: float = 3.0

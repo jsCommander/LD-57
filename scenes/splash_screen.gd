@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 
 @export var title: String
 @export var image: Texture2D

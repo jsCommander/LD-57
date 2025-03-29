@@ -5,13 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://c5eji463liob4" path="res://assets/soundtrack/Epic intro (Cover).wav" id="3_a2ut7"]
 [ext_resource type="FontFile" uid="uid://c6pc4jiv0rtn5" path="res://assets/fonts/ZeroCool.woff2" id="4_5osyx"]
 
-[node name="SplashScreen" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="SplashScreen" type="CanvasLayer"]
 script = ExtResource("1_3mj2l")
 title = "LD 57"
 image = ExtResource("2_vbcv6")
@@ -20,7 +14,6 @@ next_scene = 1
 
 [node name="TextureRect" type="TextureRect" parent="."]
 unique_name_in_owner = true
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -29,7 +22,6 @@ grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -39,7 +31,6 @@ grow_vertical = 2
 [node name="TitleLabel" type="Label" parent="."]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 300)
-layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -58,7 +49,6 @@ vertical_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 custom_minimum_size = Vector2(400, 200)
-layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0

@@ -1,6 +1,10 @@
-class_name SceneManager extends Node
+class_name SceneManager extends Node2D
 
 const LOGGER_NAME = "SceneManager"
+
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var spawn: Node2D = $Spawn
+@onready var canvas_layer: CanvasLayer = $CanvasLayer
 
 var scenes_dict: Dictionary[int, String] = {}
 
@@ -33,18 +37,30 @@ func change_scene(new_scene_key: int):
 		Logger.log_info(LOGGER_NAME, "Removing scene: %s" % current_scene.name)
 		current_scene.queue_free()
 		Logger.log_debug(LOGGER_NAME, "Scene was removed: %s" % current_scene.name)
-
+		
 	var scene_path = scenes_dict.get(new_scene_key)
 
 	if not scene_path:
 		Logger.log_error(LOGGER_NAME, "Not found scene path for key: %s" % new_scene_key)
 		return
 
+	start_transition()
 	var scene_resource = load(scene_path)
 
 	var scene_instance = scene_resource.instantiate()
 	Logger.log_debug(LOGGER_NAME, "Scene instantiated: %s" % scene_resource.resource_path)
 
-	add_child(scene_instance)
+	spawn.add_child(scene_instance)
 	current_scene = scene_instance
 	Logger.log_info(LOGGER_NAME, "Scene %s is active" % scene_instance.name)
+	
+	end_transition()
+
+func start_transition():
+	canvas_layer.visible = true
+	animation_player.play('fade_in')
+
+func end_transition():
+	animation_player.play('fade_out')
+	await animation_player.animation_finished
+	canvas_layer.visible = false

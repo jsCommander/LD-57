@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://conkkfvon3cjx"]
+[gd_scene load_steps=3 format=4 uid="uid://conkkfvon3cjx"]
 
 [ext_resource type="Script" uid="uid://djap6jl0cl5yq" path="res://levels/level_1.gd" id="1_vn7o3"]
+[ext_resource type="TileSet" uid="uid://b4ikytuqb1u87" path="res://resources/scary_tiles.tres" id="2_jirdo"]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_vn7o3")
@@ -9,5 +10,9 @@ next_scene = 3
 [node name="Timer" type="Timer" parent="."]
 unique_name_in_owner = true
 one_shot = true
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAQAAAAAAAAAAAABAAQAAAAAAAAAAAACAAQAAAAAAAAAAAADAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAFAAQAAAAAAAAAAAAGAAQAAAAAAAAAAAAHAAQAAAAAAAAAAAAIAAAAAAAAAAAAAAAIAAEAAAAAAAAAAAAIAAIAAAAAAAAAAAAIAAMAAAAAAAAAAAAIAAQAAAAAAAAAAAACAAIAAAABAAAAAAAEAAIAAAABAAAAAAAGAAIAAAABAAAAAAA=")
+tile_set = ExtResource("2_jirdo")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
