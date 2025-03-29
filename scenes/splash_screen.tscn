@@ -1,0 +1,93 @@
+[gd_scene load_steps=5 format=3 uid="uid://lfd54t3x8ogf"]
+
+[ext_resource type="Script" uid="uid://cy3ld2r4ol3xx" path="res://scenes/splash_screen.gd" id="1_3mj2l"]
+[ext_resource type="Texture2D" uid="uid://dhw1n7qhw3lfc" path="res://assets/images/scary_background.png" id="2_vbcv6"]
+[ext_resource type="AudioStream" uid="uid://c5eji463liob4" path="res://assets/soundtrack/Epic intro (Cover).wav" id="3_a2ut7"]
+[ext_resource type="FontFile" uid="uid://c6pc4jiv0rtn5" path="res://assets/fonts/ZeroCool.woff2" id="4_5osyx"]
+
+[node name="SplashScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3mj2l")
+title = "LD 57"
+image = ExtResource("2_vbcv6")
+audio = ExtResource("3_a2ut7")
+next_scene = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleLabel" type="Label" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -143.5
+offset_right = 143.5
+offset_bottom = 100.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 4
+theme_override_fonts/font = ExtResource("4_5osyx")
+theme_override_font_sizes/font_size = 128
+text = "SPLASH"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_5osyx")
+theme_override_font_sizes/font_size = 42
+text = "Start"
+
+[node name="ExitButton" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_5osyx")
+theme_override_font_sizes/font_size = 42
+text = "Exit
+"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_a2ut7")
+
+[connection signal="button_down" from="VBoxContainer/StartButton" to="." method="_handle_start_pressed"]
+[connection signal="button_down" from="VBoxContainer/ExitButton" to="." method="_handle_exit_pressed"]
