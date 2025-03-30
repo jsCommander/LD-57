@@ -4,6 +4,8 @@ class_name Player extends CharacterBody2D
 @export var prism_count: int = 10
 @export var prism_cooldown: float = 5.0
 @export var shoot_cooldown: float = 0.1
+@export var log_every_n_shots: int = 300
+@export var log_every_n_prisms: int = 5
 
 @onready var body: Node2D = $Body
 @onready var marker_2d: Marker2D = $Body/Marker2D
@@ -14,6 +16,8 @@ var prism_scene = preload("res://scenes/prism.tscn")
 var available_prisms: int
 var prism_cooldown_timer: float = 0.0
 var shoot_cooldown_timer: float = 0.0
+var lazer_used_count: int = 0
+var prism_used_count: int = 0
 
 func _ready() -> void:
 	G.player = self
@@ -66,9 +70,16 @@ func shoot() -> void:
 	get_parent().add_child(lazer)
 	lazer.global_position = marker_2d.global_position
 	lazer.direction = direction
+	lazer_used_count += 1
+	if lazer_used_count % log_every_n_shots == 0:
+		Analytics.add_event('lazer_used_count', {
+			'lazer_used_count': lazer_used_count
+		})
+
 
 func _on_health_depleted() -> void:
 	SM.change_scene(T.GameScreens.LOOSE_SCREEN)
+	Analytics.add_event('player_loose')
 
 func spawn_prism() -> void:
 	if available_prisms <= 0:
@@ -82,7 +93,11 @@ func spawn_prism() -> void:
 	var prism = prism_scene.instantiate()
 	get_parent().add_child(prism)
 	prism.global_position = mouse_pos
-	
+	prism_used_count += 1
+	if prism_used_count % log_every_n_prisms == 0:
+		Analytics.add_event('prism_used', {
+			'prism_used_count': prism_used_count
+		})
 	# Уменьшаем количество доступных призм и запускаем таймер перезарядки
 	available_prisms -= 1
 	if available_prisms < prism_count:

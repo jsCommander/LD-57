@@ -4,6 +4,7 @@
 
 [node name="LoseScreen" type="CanvasLayer"]
 script = ExtResource("1_uglf1")
+next_scene = 2
 wait_time = 2.0
 
 [node name="ColorRect" type="ColorRect" parent="."]
