@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=4 uid="uid://1gxi6l1dohi2"]
+
+[ext_resource type="Script" uid="uid://qcv0wa0ifnnq" path="res://levels/lazer_prism.gd" id="1_qng66"]
+[ext_resource type="TileSet" uid="uid://b4ikytuqb1u87" path="res://resources/scary_tiles.tres" id="2_ed4dj"]
+[ext_resource type="PackedScene" uid="uid://b30iackfha5tb" path="res://scenes/player.tscn" id="3_qng66"]
+[ext_resource type="PackedScene" uid="uid://dard3dwcfp4pj" path="res://scenes/enemy.tscn" id="4_x05ig"]
+[ext_resource type="AudioStream" uid="uid://eccdr8vl6xn0" path="res://assets/soundtrack/snes long normal.wav" id="5_a2wo8"]
+[ext_resource type="PackedScene" uid="uid://b1puybx3srw25" path="res://scenes/spawner.tscn" id="6_es1pl"]
+
+[sub_resource type="Gradient" id="Gradient_qng66"]
+colors = PackedColorArray(0.297061, 0.0258142, 0.218203, 1, 0.368433, 0.000100256, 0.37261, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_x05ig"]
+gradient = SubResource("Gradient_qng66")
+fill_to = Vector2(1, 1)
+
+[node name="Lazer-prism" type="Node2D"]
+script = ExtResource("1_qng66")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2602, 864)
+scale = Vector2(100, 100)
+texture = SubResource("GradientTexture2D_x05ig")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD+//3/AAAAAAAAAAD+//7/AAAAAAAAAAD+////AAAAAAAAAAD+/wAAAAAAAAAAAAD+/wEAAAAAAAAAAAD+/wIAAAAAAAAAAAD+/wMAAAAAAAAAAAD+/wQAAAAAAAAAAAD+/wUAAAAAAAAAAAD+/wYAAAAAAAAAAAD+/wcAAAAAAAAAAAD+/wgAAAAAAAAAAAD///3/AAAAAAAAAAD///7/AAAAAAAAAAD/////AAAAAAAAAAD//wAAAAAAAAAAAAD//wEAAAAAAAAAAAD//wIAAAAAAAAAAAD//wMAAAAAAAAAAAD//wQAAAAAAAAAAAD//wUAAAAAAAAAAAD//wYAAAAAAAAAAAD//wcAAAAAAAAAAAD//wgAAAAAAAAAAAAAAP3/AAAAAAAAAAAAAP7/AAAAAAAAAAAAAAcAAAAAAAAAAAAAAAgAAAAAAAAAAAABAP3/AAAAAAAAAAABAP7/AAAAAAAAAAABAAcAAAAAAAAAAAABAAgAAAAAAAAAAAACAP3/AAAAAAAAAAACAP7/AAAAAAAAAAACAAcAAAAAAAAAAAACAAgAAAAAAAAAAAADAP3/AAAAAAAAAAADAP7/AAAAAAAAAAADAAcAAAAAAAAAAAADAAgAAAAAAAAAAAAEAP3/AAAAAAAAAAAEAP7/AAAAAAAAAAAEAAcAAAAAAAAAAAAEAAgAAAAAAAAAAAAFAP3/AAAAAAAAAAAFAP7/AAAAAAAAAAAFAAcAAAAAAAAAAAAFAAgAAAAAAAAAAAAGAP3/AAAAAAAAAAAGAP7/AAAAAAAAAAAGAAcAAAAAAAAAAAAGAAgAAAAAAAAAAAAHAP3/AAAAAAAAAAAHAP7/AAAAAAAAAAAHAAcAAAAAAAAAAAAHAAgAAAAAAAAAAAAIAP3/AAAAAAAAAAAIAP7/AAAAAAAAAAAIAAcAAAAAAAAAAAAIAAgAAAAAAAAAAAAJAP3/AAAAAAAAAAAJAP7/AAAAAAAAAAAJAAcAAAAAAAAAAAAJAAgAAAAAAAAAAAAKAP3/AAAAAAAAAAAKAP7/AAAAAAAAAAAKAAcAAAAAAAAAAAAKAAgAAAAAAAAAAAALAP3/AAAAAAAAAAALAP7/AAAAAAAAAAALAAcAAAAAAAAAAAALAAgAAAAAAAAAAAAMAP3/AAAAAAAAAAAMAP7/AAAAAAAAAAAMAAcAAAAAAAAAAAAMAAgAAAAAAAAAAAANAP3/AAAAAAAAAAANAP7/AAAAAAAAAAANAAcAAAAAAAAAAAANAAgAAAAAAAAAAAAOAP3/AAAAAAAAAAAOAP7/AAAAAAAAAAAOAAcAAAAAAAAAAAAOAAgAAAAAAAAAAAAPAP3/AAAAAAAAAAAPAP7/AAAAAAAAAAAPAAcAAAAAAAAAAAAPAAgAAAAAAAAAAAAQAP3/AAAAAAAAAAAQAP7/AAAAAAAAAAAQAAcAAAAAAAAAAAAQAAgAAAAAAAAAAAARAP3/AAAAAAAAAAARAP7/AAAAAAAAAAARAAcAAAAAAAAAAAARAAgAAAAAAAAAAAASAP3/AAAAAAAAAAASAP7/AAAAAAAAAAASAP//AAAAAAAAAAASAAAAAAAAAAAAAAASAAEAAAAAAAAAAAASAAIAAAAAAAAAAAASAAMAAAAAAAAAAAASAAQAAAAAAAAAAAASAAUAAAAAAAAAAAASAAYAAAAAAAAAAAASAAcAAAAAAAAAAAASAAgAAAAAAAAAAAATAP3/AAAAAAAAAAATAP7/AAAAAAAAAAATAP//AAAAAAAAAAATAAAAAAAAAAAAAAATAAEAAAAAAAAAAAATAAIAAAAAAAAAAAATAAMAAAAAAAAAAAATAAQAAAAAAAAAAAATAAUAAAAAAAAAAAATAAYAAAAAAAAAAAATAAcAAAAAAAAAAAATAAgAAAAAAAAAAAA=")
+tile_set = ExtResource("2_ed4dj")
+
+[node name="Enemy" parent="." instance=ExtResource("4_x05ig")]
+position = Vector2(2374, 381)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("3_qng66")]
+position = Vector2(215, 183)
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+zoom = Vector2(0.5, 0.5)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_a2wo8")
+autoplay = true
+
+[node name="Spawner" parent="." instance=ExtResource("6_es1pl")]
+enemy_scene = ExtResource("4_x05ig")
+spawn_interval = 3.0
+
+[node name="Node2D" type="Node2D" parent="Spawner"]
+position = Vector2(184, -92)
+
+[node name="Node2D2" type="Node2D" parent="Spawner"]
+position = Vector2(184, 1573)
+
+[node name="Node2D3" type="Node2D" parent="Spawner"]
+position = Vector2(4231, 5)
+
+[node name="Node2D4" type="Node2D" parent="Spawner"]
+position = Vector2(4323, 1557)

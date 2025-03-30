@@ -10,7 +10,7 @@ script = ExtResource("1_3mj2l")
 title = "LD 57"
 image = ExtResource("2_vbcv6")
 audio = ExtResource("3_a2ut7")
-next_scene = 1
+next_scene = 2
 
 [node name="TextureRect" type="TextureRect" parent="."]
 unique_name_in_owner = true

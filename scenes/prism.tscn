@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsdvmfgcax3ta"]
+
+[ext_resource type="Script" uid="uid://meejl24kk0au" path="res://scenes/prism.gd" id="1_pbn2c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kbji1"]
+size = Vector2(132, 148)
+
+[node name="Prism" type="Area2D"]
+collision_layer = 16
+collision_mask = 8
+script = ExtResource("1_pbn2c")
+reflect_count = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, 7)
+shape = SubResource("RectangleShape2D_kbji1")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(-162, -114)
+color = Color(0.12549, 1, 1, 1)
+polygon = PackedVector2Array(160, 46, 104, 84, 101, 164, 138, 191, 194, 191, 228, 163, 224, 77)

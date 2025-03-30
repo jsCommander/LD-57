@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://d12k04516ets1"]
 
-[ext_resource type="Script" path="res://addons/quiver_analytics/consent_dialog.gd" id="1_uhvlc"]
+[ext_resource type="Script" uid="uid://gtb0s15anxoh" path="res://addons/quiver_analytics/consent_dialog.gd" id="1_uhvlc"]
 
 [sub_resource type="Animation" id="Animation_m08b6"]
 resource_name = "RESET"
@@ -97,9 +97,9 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3qyvs"]
 _data = {
-"RESET": SubResource("Animation_m08b6"),
-"fade_in": SubResource("Animation_mqfr5"),
-"pop_up": SubResource("Animation_le4fb")
+&"RESET": SubResource("Animation_m08b6"),
+&"fade_in": SubResource("Animation_mqfr5"),
+&"pop_up": SubResource("Animation_le4fb")
 }
 
 [node name="ConsentDialog" type="CanvasLayer"]
@@ -146,5 +146,5 @@ text = "Opt out"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_3qyvs")
+&"": SubResource("AnimationLibrary_3qyvs")
 }
