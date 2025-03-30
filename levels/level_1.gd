@@ -8,6 +8,7 @@ extends Node2D
 func _ready():
 	timer.wait_time = wait_time
 	timer.start()
+	Analytics.add_event('level_1_viewed')
 
 func _on_timer_timeout():
 	SM.change_scene(next_scene)

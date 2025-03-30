@@ -20,16 +20,25 @@ config/icon="res://icon.svg"
 T="*res://scripts/types.gd"
 EB="*res://scripts/event_bus.gd"
 SM="*res://shared/globals/scene_manager.tscn"
+Analytics="*res://addons/quiver_analytics/analytics.tscn"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/quiver_analytics/plugin.cfg")
+
 [layer_names]
 
 2d_physics/layer_1="Level"
 2d_physics/layer_2="Player"
+
+[quiver]
+
+general/auth_token="mmpuLXPchUGiYMIwihOlf5Ni29LHVq503MJB1xec"
 
 [rendering]
 
