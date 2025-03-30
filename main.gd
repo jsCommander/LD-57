@@ -7,4 +7,4 @@ func _ready() -> void:
 	SM.add_scene(T.GameScreens.LEVEL1, "res://levels/level_1.tscn")
 	SM.add_scene(T.GameScreens.LAZER_TEST, "res://levels/lazer-prism.tscn")
 	
-	SM.change_scene(T.GameScreens.SPLASH_SCREEN)
+	SM.change_scene(T.GameScreens.LAZER_TEST)

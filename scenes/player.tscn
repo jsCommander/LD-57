@@ -28,12 +28,12 @@ target = NodePath("..")
 
 [node name="Polygon2D" type="Polygon2D" parent="Body"]
 position = Vector2(-676, -308)
-color = Color(0.24714, 0.55341, 0.7977, 1)
+color = Color(0.0316206, 0.831821, 0.956179, 1)
 polygon = PackedVector2Array(572, 257, 660, 260, 694, 294, 695, 374, 665, 406, 569, 406)
 
 [node name="Polygon2D2" type="Polygon2D" parent="Body"]
 position = Vector2(-676, -308)
-color = Color(0.811765, 0.262745, 0.396078, 1)
+color = Color(0.412696, 0.801208, 0.994737, 1)
 polygon = PackedVector2Array(574, 205, 574, 246, 778, 249, 774, 195)
 
 [node name="Marker2D" type="Marker2D" parent="Body"]
