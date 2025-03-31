@@ -1,9 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://pal8a87lsl2m"]
+[gd_scene load_steps=8 format=3 uid="uid://pal8a87lsl2m"]
 
 [ext_resource type="Script" uid="uid://cfehgoppigy15" path="res://scenes/lazer.gd" id="1_ffgoh"]
+[ext_resource type="Shader" uid="uid://4geb5ow36clx" path="res://levels/glow.gdshader" id="2_14yh8"]
+[ext_resource type="AudioStream" uid="uid://ccy2n3i8q8qam" path="res://assets/sfx/lazer.wav" id="3_y5oxn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ojbhb"]
 size = Vector2(216, 5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_14yh8"]
+shader = ExtResource("2_14yh8")
+shader_parameter/glow_color = Color(0.2, 0.6, 0.3, 1)
+shader_parameter/glow_power = 2.0
+shader_parameter/glow_radius = 1.0
+shader_parameter/glow_shift = 1.0
+shader_parameter/blink_speed = 1.0
+shader_parameter/blink_min = 0.2
+shader_parameter/blink_max = 1.0
+
+[sub_resource type="Gradient" id="Gradient_y5oxn"]
+colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_lyutw"]
+gradient = SubResource("Gradient_y5oxn")
 
 [node name="Lazer" type="Area2D"]
 collision_layer = 8
@@ -12,6 +30,7 @@ script = ExtResource("1_ffgoh")
 speed = 3000.0
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
+visible = false
 position = Vector2(-78, -13)
 color = Color(0.00392157, 0.654902, 0.0509804, 1)
 polygon = PackedVector2Array(-16, 7, 201, 7, 201, 13, -15, 18)
@@ -19,5 +38,25 @@ polygon = PackedVector2Array(-16, 7, 201, 7, 201, 13, -15, 18)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(15, -1.5)
 shape = SubResource("RectangleShape2D_ojbhb")
+
+[node name="line" type="Line2D" parent="."]
+material = SubResource("ShaderMaterial_14yh8")
+position = Vector2(-2, 12)
+rotation = 0.0038425
+points = PackedVector2Array(-88.0493, -12.6618, 120.949, -13.4648)
+texture = SubResource("GradientTexture1D_lyutw")
+texture_mode = 2
+
+[node name="peak" type="Line2D" parent="."]
+material = SubResource("ShaderMaterial_14yh8")
+position = Vector2(1, 20)
+rotation = 0.0038425
+points = PackedVector2Array(-88.0493, -12.6618, -72.2684, -69.7228, -54.8689, 34.2111, -32.2649, -68.8765, -5.90774, 24.0229, 14.704, -77.0571, 41.1227, 31.8422, 71.7151, -74.2761, 88.0993, 25.6617, 117.922, -20.4533)
+texture = SubResource("GradientTexture1D_lyutw")
+texture_mode = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_y5oxn")
+autoplay = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

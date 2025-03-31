@@ -1,10 +1,41 @@
-[gd_scene load_steps=4 format=3 uid="uid://b30iackfha5tb"]
+[gd_scene load_steps=11 format=3 uid="uid://b30iackfha5tb"]
 
 [ext_resource type="Script" uid="uid://cblvkokb46g13" path="res://scenes/player.gd" id="1_3vyb7"]
 [ext_resource type="PackedScene" uid="uid://bsdpatsyf7p6i" path="res://scenes/health_bar.tscn" id="2_g2els"]
+[ext_resource type="Shader" uid="uid://4geb5ow36clx" path="res://levels/glow.gdshader" id="3_qhqgy"]
+[ext_resource type="AudioStream" uid="uid://bpukhwb02h3wh" path="res://assets/sfx/hurt.wav" id="4_dqkch"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x05ig"]
 size = Vector2(218, 216)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dqkch"]
+shader = ExtResource("3_qhqgy")
+shader_parameter/glow_color = Color(0.137255, 0.847059, 1, 1)
+shader_parameter/glow_power = 2.0
+shader_parameter/glow_radius = 1.0
+shader_parameter/glow_shift = 1.0
+shader_parameter/blink_speed = 1.0
+shader_parameter/blink_min = 0.2
+shader_parameter/blink_max = 1.0
+
+[sub_resource type="Gradient" id="Gradient_qhqgy"]
+offsets = PackedFloat32Array(0.467532, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dqkch"]
+gradient = SubResource("Gradient_qhqgy")
+fill = 1
+fill_from = Vector2(0.5, 0.53211)
+fill_to = Vector2(1, 0.571101)
+
+[sub_resource type="Gradient" id="Gradient_c4w8v"]
+offsets = PackedFloat32Array(0, 0.840909)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_qlg0r"]
+gradient = SubResource("Gradient_c4w8v")
+fill = 1
+fill_from = Vector2(0.5, 0.486239)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 collision_layer = 2
@@ -26,15 +57,24 @@ target = NodePath("..")
 
 [node name="Body" type="Node2D" parent="."]
 
-[node name="Polygon2D" type="Polygon2D" parent="Body"]
-position = Vector2(-676, -308)
-color = Color(0.0316206, 0.831821, 0.956179, 1)
-polygon = PackedVector2Array(572, 257, 660, 260, 694, 294, 695, 374, 665, 406, 569, 406)
+[node name="Sprite2D3" type="Sprite2D" parent="Body"]
+material = SubResource("ShaderMaterial_dqkch")
+position = Vector2(46, -4)
+rotation = 1.55995
+scale = Vector2(0.59527, 3.2571)
+texture = SubResource("GradientTexture2D_dqkch")
 
-[node name="Polygon2D2" type="Polygon2D" parent="Body"]
-position = Vector2(-676, -308)
-color = Color(0.412696, 0.801208, 0.994737, 1)
-polygon = PackedVector2Array(574, 205, 574, 246, 778, 249, 774, 195)
+[node name="Marker2D" type="Marker2D" parent="Body/Sprite2D3"]
+position = Vector2(-0.422974, -21.1866)
+rotation = -1.51153
+scale = Vector2(0.307543, 1.67982)
+skew = -0.0572801
 
-[node name="Marker2D" type="Marker2D" parent="Body"]
-position = Vector2(79, -90)
+[node name="Sprite2D2" type="Sprite2D" parent="Body"]
+material = SubResource("ShaderMaterial_dqkch")
+position = Vector2(0, 1)
+scale = Vector2(4.65625, 4.32812)
+texture = SubResource("GradientTexture2D_qlg0r")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_dqkch")

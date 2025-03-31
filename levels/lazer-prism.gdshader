@@ -2,7 +2,7 @@ shader_type canvas_item;
 
 uniform vec4 base_color : hint_color = vec4(0.0, 0.7, 1.0, 1.0);
 uniform vec4 glow_color : hint_color = vec4(0.9, 0.2, 0.8, 1.0);
-uniform float pixel_size : hint_range(1.0, 20.0) = 4.0;
+uniform float pixel_size : hint_range(1.0, 20.0) = 2.0;
 uniform float scan_line_intensity : hint_range(0.0, 1.0) = 0.3;
 uniform float noise_intensity : hint_range(0.0, 0.3) = 0.1;
 uniform float time_scale : hint_range(0.1, 3.0) = 1.0;

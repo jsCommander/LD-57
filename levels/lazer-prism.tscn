@@ -1,26 +1,25 @@
-[gd_scene load_steps=11 format=4 uid="uid://1gxi6l1dohi2"]
+[gd_scene load_steps=10 format=4 uid="uid://1gxi6l1dohi2"]
 
 [ext_resource type="Script" uid="uid://qcv0wa0ifnnq" path="res://levels/lazer_prism.gd" id="1_qng66"]
 [ext_resource type="TileSet" uid="uid://b4ikytuqb1u87" path="res://resources/scary_tiles.tres" id="2_ed4dj"]
 [ext_resource type="Texture2D" uid="uid://dhw1n7qhw3lfc" path="res://assets/images/scary_background.png" id="3_flhwx"]
 [ext_resource type="PackedScene" uid="uid://b30iackfha5tb" path="res://scenes/player.tscn" id="3_qng66"]
 [ext_resource type="PackedScene" uid="uid://dard3dwcfp4pj" path="res://scenes/enemy.tscn" id="4_x05ig"]
-[ext_resource type="AudioStream" uid="uid://bupgj3bu22qs3" path="res://assets/soundtrack/sigma (Cover).wav" id="6_83sgb"]
+[ext_resource type="AudioStream" uid="uid://yiy3jpyi0umy" path="res://assets/soundtrack/nes boy.wav" id="6_83sgb"]
 [ext_resource type="PackedScene" uid="uid://b1puybx3srw25" path="res://scenes/spawner.tscn" id="6_es1pl"]
-[ext_resource type="Shader" uid="uid://cpp0u8e50wi22" path="res://levels/camera.gdshader" id="8_83sgb"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_83sgb"]
+[ext_resource type="Shader" uid="uid://2ps6rej4qhlu" path="res://levels/crt.gdshader" id="8_83sgb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_flhwx"]
 shader = ExtResource("8_83sgb")
-shader_parameter/size = Vector2(32, 28)
+shader_parameter/screen_resolution = Vector2(480, 270)
+shader_parameter/scanline_intensity = 0.3
+shader_parameter/color_bleed_weight = 0.35
 
 [node name="Lazer-prism" type="Node2D"]
 script = ExtResource("1_qng66")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 1)
-material = SubResource("ShaderMaterial_83sgb")
 position = Vector2(2137.5, 643.5)
 scale = Vector2(14.1465, 7.58789)
 texture = ExtResource("3_flhwx")
@@ -28,19 +27,6 @@ texture = ExtResource("3_flhwx")
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAD+//3/AAAAAAAAAAD+//7/AAAAAAAAAAD+////AAAAAAAAAAD+/wAAAAAAAAAAAAD+/wEAAAAAAAAAAAD+/wIAAAAAAAAAAAD+/wMAAAAAAAAAAAD+/wQAAAAAAAAAAAD+/wUAAAAAAAAAAAD+/wYAAAAAAAAAAAD+/wcAAAAAAAAAAAD+/wgAAAAAAAAAAAD///3/AAAAAAAAAAD///7/AAAAAAAAAAD/////AAAAAAAAAAD//wAAAAAAAAAAAAD//wEAAAAAAAAAAAD//wIAAAAAAAAAAAD//wMAAAAAAAAAAAD//wQAAAAAAAAAAAD//wUAAAAAAAAAAAD//wYAAAAAAAAAAAD//wcAAAAAAAAAAAD//wgAAAAAAAAAAAAAAP3/AAAAAAAAAAAAAP7/AAAAAAAAAAAAAAcAAAAAAAAAAAAAAAgAAAAAAAAAAAABAP3/AAAAAAAAAAABAP7/AAAAAAAAAAABAAcAAAAAAAAAAAABAAgAAAAAAAAAAAACAP3/AAAAAAAAAAACAP7/AAAAAAAAAAACAAcAAAAAAAAAAAACAAgAAAAAAAAAAAADAP3/AAAAAAAAAAADAP7/AAAAAAAAAAADAAcAAAAAAAAAAAADAAgAAAAAAAAAAAAEAP3/AAAAAAAAAAAEAP7/AAAAAAAAAAAEAAcAAAAAAAAAAAAEAAgAAAAAAAAAAAAFAP3/AAAAAAAAAAAFAP7/AAAAAAAAAAAFAAcAAAAAAAAAAAAFAAgAAAAAAAAAAAAGAP3/AAAAAAAAAAAGAP7/AAAAAAAAAAAGAAcAAAAAAAAAAAAGAAgAAAAAAAAAAAAHAP3/AAAAAAAAAAAHAP7/AAAAAAAAAAAHAAcAAAAAAAAAAAAHAAgAAAAAAAAAAAAIAP3/AAAAAAAAAAAIAP7/AAAAAAAAAAAIAAcAAAAAAAAAAAAIAAgAAAAAAAAAAAAJAP3/AAAAAAAAAAAJAP7/AAAAAAAAAAAJAAcAAAAAAAAAAAAJAAgAAAAAAAAAAAAKAP3/AAAAAAAAAAAKAP7/AAAAAAAAAAAKAAcAAAAAAAAAAAAKAAgAAAAAAAAAAAALAP3/AAAAAAAAAAALAP7/AAAAAAAAAAALAAcAAAAAAAAAAAALAAgAAAAAAAAAAAAMAP3/AAAAAAAAAAAMAP7/AAAAAAAAAAAMAAcAAAAAAAAAAAAMAAgAAAAAAAAAAAANAP3/AAAAAAAAAAANAP7/AAAAAAAAAAANAAcAAAAAAAAAAAANAAgAAAAAAAAAAAAOAP3/AAAAAAAAAAAOAP7/AAAAAAAAAAAOAAcAAAAAAAAAAAAOAAgAAAAAAAAAAAAPAP3/AAAAAAAAAAAPAP7/AAAAAAAAAAAPAAcAAAAAAAAAAAAPAAgAAAAAAAAAAAAQAP3/AAAAAAAAAAAQAP7/AAAAAAAAAAAQAAcAAAAAAAAAAAAQAAgAAAAAAAAAAAARAP3/AAAAAAAAAAARAP7/AAAAAAAAAAARAAcAAAAAAAAAAAARAAgAAAAAAAAAAAASAP3/AAAAAAAAAAASAP7/AAAAAAAAAAASAP//AAAAAAAAAAASAAAAAAAAAAAAAAASAAEAAAAAAAAAAAASAAIAAAAAAAAAAAASAAMAAAAAAAAAAAASAAQAAAAAAAAAAAASAAUAAAAAAAAAAAASAAYAAAAAAAAAAAASAAcAAAAAAAAAAAASAAgAAAAAAAAAAAATAP3/AAAAAAAAAAATAP7/AAAAAAAAAAATAP//AAAAAAAAAAATAAAAAAAAAAAAAAATAAEAAAAAAAAAAAATAAIAAAAAAAAAAAATAAMAAAAAAAAAAAATAAQAAAAAAAAAAAATAAUAAAAAAAAAAAATAAYAAAAAAAAAAAATAAcAAAAAAAAAAAATAAgAAAAAAAAAAAA=")
 tile_set = ExtResource("2_ed4dj")
-
-[node name="Enemy" parent="." instance=ExtResource("4_x05ig")]
-position = Vector2(2374, 381)
-
-[node name="CharacterBody2D" parent="." instance=ExtResource("3_qng66")]
-position = Vector2(215, 183)
-
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-zoom = Vector2(0.5, 0.5)
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_83sgb")
-autoplay = true
 
 [node name="Spawner" parent="." instance=ExtResource("6_es1pl")]
 enemy_scene = ExtResource("4_x05ig")
@@ -57,6 +43,19 @@ position = Vector2(4231, 5)
 
 [node name="Node2D4" type="Node2D" parent="Spawner"]
 position = Vector2(4323, 1557)
+
+[node name="Enemy" parent="." instance=ExtResource("4_x05ig")]
+position = Vector2(2374, 381)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("3_qng66")]
+position = Vector2(215, 183)
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+zoom = Vector2(0.5, 0.5)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_83sgb")
+autoplay = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

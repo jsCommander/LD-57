@@ -3,6 +3,7 @@ extends Area2D
 @export var reflect_angle: float = 45.0
 @export var reflect_count: int = 2
 @export var life_time: float = 10.0
+@export var reflect_damage_multiplier: float = 2.0
 
 signal laser_reflected(reflected_lasers)
 
@@ -44,11 +45,12 @@ func _reflect_laser(area):
 		var reflected_direction = incoming_direction.rotated(deg_to_rad(angle)).normalized()
 
 		var reflected_laser = LazerScene.instantiate()
-		reflected_laser.start_damage = area.current_damage * area.reflect_damage_multiplier
 		reflected_laser.global_position = area.global_position
 		reflected_laser.direction = reflected_direction
 
 		get_tree().root.add_child(reflected_laser)
+		reflected_laser.set_form(Lazer.LazerForm.PEAK)
+		reflected_laser.set_damage(area.current_damage * reflect_damage_multiplier)
 		reflected_lasers.append(reflected_laser)
 
 	area.queue_free()

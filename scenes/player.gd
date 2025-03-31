@@ -8,7 +8,8 @@ class_name Player extends CharacterBody2D
 @export var log_every_n_prisms: int = 5
 
 @onready var body: Node2D = $Body
-@onready var marker_2d: Marker2D = $Body/Marker2D
+@onready var marker_2d: Marker2D = $Body/Sprite2D3/Marker2D
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 var lazer_scene = preload("res://scenes/lazer.tscn")
 var hitpoint: Hitpoint = Hitpoint.new()
@@ -22,6 +23,7 @@ var prism_used_count: int = 0
 func _ready() -> void:
 	G.player = self
 	hitpoint.health_depleted.connect(_on_health_depleted)
+	hitpoint.health_changed.connect(_on_hit)
 	available_prisms = prism_count
 
 func _physics_process(delta: float) -> void:
@@ -80,6 +82,9 @@ func shoot() -> void:
 func _on_health_depleted() -> void:
 	SM.change_scene(T.GameScreens.LOOSE_SCREEN)
 	Analytics.add_event('player_loose')
+	
+func _on_hit(_damage: int) -> void:
+	audio_stream_player_2d.play()
 
 func spawn_prism() -> void:
 	if available_prisms <= 0:
