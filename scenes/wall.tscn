@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dcwjwqu8hnxyv"]
+
+[ext_resource type="Shader" uid="uid://4geb5ow36clx" path="res://levels/glow.gdshader" id="1_2ktk7"]
+[ext_resource type="Texture2D" uid="uid://cs4h8lw5ntj4j" path="res://resources/wall.tres" id="1_wykyb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e00m8"]
+shader = ExtResource("1_2ktk7")
+shader_parameter/glow_color = Color(0.886039, 0.112042, 0.554206, 1)
+shader_parameter/glow_power = 2.0
+shader_parameter/glow_radius = 1.0
+shader_parameter/glow_shift = 1.0
+shader_parameter/blink_speed = 3.0
+shader_parameter/blink_min = 0.5
+shader_parameter/blink_max = 1.0
+
+[node name="Wall" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_e00m8")
+texture = ExtResource("1_wykyb")
