@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dcwjwqu8hnxyv"]
 
-[ext_resource type="Shader" uid="uid://4geb5ow36clx" path="res://levels/glow.gdshader" id="1_2ktk7"]
+[ext_resource type="Shader" uid="uid://4geb5ow36clx" path="res://shared/shaders/glow.gdshader" id="1_2ktk7"]
 [ext_resource type="Texture2D" uid="uid://cs4h8lw5ntj4j" path="res://resources/wall.tres" id="1_wykyb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_e00m8"]

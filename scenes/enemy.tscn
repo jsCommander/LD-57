@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bkqrmku0odjfa" path="res://scenes/enemy.gd" id="1_7p1mj"]
 [ext_resource type="PackedScene" uid="uid://bsdpatsyf7p6i" path="res://scenes/health_bar.tscn" id="2_md0e3"]
 [ext_resource type="PackedScene" uid="uid://cen3nm38b278r" path="res://scenes/player_detector.tscn" id="3_4ra3w"]
-[ext_resource type="Shader" uid="uid://4geb5ow36clx" path="res://levels/glow.gdshader" id="4_5uy6h"]
+[ext_resource type="Shader" uid="uid://4geb5ow36clx" path="res://shared/shaders/glow.gdshader" id="4_5uy6h"]
 [ext_resource type="AudioStream" uid="uid://hcl3efdvinjt" path="res://assets/sfx/enemy_hurt.wav" id="5_c4w8v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7p1mj"]

@@ -53,13 +53,13 @@ vec4 getPatternColor(vec2 uv, float intensity)
 	vec2 patternUV2 = uv * u_patternTiling;                  // Оригинальные координаты
 	vec2 patternUV3 = ROT_45*(uv + vec2(0.2358, 0.9123)) * u_patternTiling;  // Поворот на 45°
 	vec2 patternUV4 = (vec2(uv.x, -uv.y) + vec2(0.4123, 0.7218)) * u_patternTiling;  // Отражение по Y + смещение
-	
+
 	// Получаем цвета для каждого варианта паттерна
 	vec4 pCol1 = texture(u_patternTexture, patternUV1);
 	vec4 pCol2 = texture(u_patternTexture, patternUV2);
 	vec4 pCol3 = texture(u_patternTexture, patternUV3);
 	vec4 pCol4 = texture(u_patternTexture, patternUV4);
-	
+
 	// Возвращаем разные варианты паттерна в зависимости от интенсивности
 	if(intensity > u_threshold1)
 		return vec4(1.0, 1.0, 1.0, 1.0);  // Полностью белый

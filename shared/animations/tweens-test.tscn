@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://q3n3lagjut60"]
+
+[ext_resource type="Texture2D" uid="uid://r63errlyyjmf" path="res://assets/images/ghost.png" id="1_uyl57"]
+[ext_resource type="Script" uid="uid://brp24j0lepr3a" path="res://shared/animations/tweens_test.gd" id="1_whq6p"]
+
+[node name="Tweens-test" type="Node2D"]
+script = ExtResource("1_whq6p")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(212, 225)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_uyl57")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(536, 229)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_uyl57")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(881, 246)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_uyl57")

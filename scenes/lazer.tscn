@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://pal8a87lsl2m"]
 
 [ext_resource type="Script" uid="uid://cfehgoppigy15" path="res://scenes/lazer.gd" id="1_ffgoh"]
-[ext_resource type="Shader" uid="uid://4geb5ow36clx" path="res://levels/glow.gdshader" id="2_14yh8"]
+[ext_resource type="Shader" uid="uid://4geb5ow36clx" path="res://shared/shaders/glow.gdshader" id="2_14yh8"]
 [ext_resource type="AudioStream" uid="uid://ccy2n3i8q8qam" path="res://assets/sfx/lazer.wav" id="3_y5oxn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ojbhb"]

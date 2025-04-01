@@ -4,3 +4,12 @@
 
 [resource]
 shader = ExtResource("1_nq5ke")
+shader_parameter/u_bgColor = Vector4(1, 1, 1, 1)
+shader_parameter/u_bgColorFactor = 0.4
+shader_parameter/u_patternColor = Vector4(0, 0, 0, 1)
+shader_parameter/u_threshold1 = 0.75
+shader_parameter/u_threshold2 = 0.5
+shader_parameter/u_threshold3 = 0.25
+shader_parameter/u_threshold4 = 0.05
+shader_parameter/u_bgTiling = Vector2(1, 1)
+shader_parameter/u_patternTiling = Vector2(1, 1)

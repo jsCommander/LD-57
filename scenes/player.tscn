@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cblvkokb46g13" path="res://scenes/player.gd" id="1_3vyb7"]
 [ext_resource type="PackedScene" uid="uid://bsdpatsyf7p6i" path="res://scenes/health_bar.tscn" id="2_g2els"]
-[ext_resource type="Shader" uid="uid://4geb5ow36clx" path="res://levels/glow.gdshader" id="3_qhqgy"]
+[ext_resource type="Shader" uid="uid://4geb5ow36clx" path="res://shared/shaders/glow.gdshader" id="3_qhqgy"]
 [ext_resource type="AudioStream" uid="uid://bpukhwb02h3wh" path="res://assets/sfx/hurt.wav" id="4_dqkch"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x05ig"]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bsdvmfgcax3ta"]
 
 [ext_resource type="Script" uid="uid://meejl24kk0au" path="res://scenes/prism.gd" id="1_pbn2c"]
-[ext_resource type="Shader" uid="uid://4geb5ow36clx" path="res://levels/glow.gdshader" id="2_2qf61"]
+[ext_resource type="Shader" uid="uid://4geb5ow36clx" path="res://shared/shaders/glow.gdshader" id="2_2qf61"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kbji1"]
 size = Vector2(132, 148)

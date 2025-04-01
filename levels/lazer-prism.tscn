@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" uid="uid://qcv0wa0ifnnq" path="res://levels/lazer_prism.gd" id="1_qng66"]
 [ext_resource type="Texture2D" uid="uid://dhw1n7qhw3lfc" path="res://assets/images/scary_background.png" id="3_flhwx"]
-[ext_resource type="Shader" uid="uid://4geb5ow36clx" path="res://levels/glow.gdshader" id="3_oce4i"]
+[ext_resource type="Shader" uid="uid://4geb5ow36clx" path="res://shared/shaders/glow.gdshader" id="3_oce4i"]
 [ext_resource type="PackedScene" uid="uid://b30iackfha5tb" path="res://scenes/player.tscn" id="3_qng66"]
 [ext_resource type="TileSet" uid="uid://dmd37g0nbeva7" path="res://resources/neon.tres" id="4_6t65h"]
 [ext_resource type="PackedScene" uid="uid://dard3dwcfp4pj" path="res://scenes/enemy.tscn" id="4_x05ig"]
 [ext_resource type="AudioStream" uid="uid://yiy3jpyi0umy" path="res://assets/soundtrack/nes boy.wav" id="6_83sgb"]
 [ext_resource type="PackedScene" uid="uid://b1puybx3srw25" path="res://scenes/spawner.tscn" id="6_es1pl"]
-[ext_resource type="Shader" uid="uid://2ps6rej4qhlu" path="res://levels/crt.gdshader" id="8_83sgb"]
+[ext_resource type="Shader" uid="uid://2ps6rej4qhlu" path="res://shared/shaders/crt.gdshader" id="8_83sgb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_l70b7"]
 shader = ExtResource("3_oce4i")
