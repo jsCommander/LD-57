@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://d4ckty183hkuv"]
+
+[ext_resource type="Material" uid="uid://djnkdybdcp2pe" path="res://shared/shaders/test/shader.tres" id="1_fjrgq"]
+[ext_resource type="Texture2D" uid="uid://b1c5bywv41vrx" path="res://assets/images/cristal.png" id="2_i4i0w"]
+[ext_resource type="Texture2D" uid="uid://bkx38bgx0iydc" path="res://shared/shaders/test/square.tres" id="3_vg146"]
+[ext_resource type="Texture2D" uid="uid://r63errlyyjmf" path="res://assets/images/ghost.png" id="4_i4i0w"]
+
+[node name="Shader-test" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = ExtResource("1_fjrgq")
+position = Vector2(286, 336)
+texture = ExtResource("2_i4i0w")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+material = ExtResource("1_fjrgq")
+position = Vector2(600, 360)
+texture = ExtResource("3_vg146")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(1028, 429)
+texture = ExtResource("4_i4i0w")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+material = ExtResource("1_fjrgq")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_vg146")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = ExtResource("1_fjrgq")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
