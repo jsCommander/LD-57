@@ -25,7 +25,7 @@ fill_from = Vector2(0.46789, 0.442661)
 fill_to = Vector2(0.747706, 0.364679)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dqkch"]
-size = Vector2(275, 59)
+size = Vector2(275, 102)
 
 [node name="Flashlight" type="Area2D"]
 collision_layer = 0
@@ -39,7 +39,7 @@ scale = Vector2(9.42188, 3.14376)
 texture = SubResource("GradientTexture2D_fjrip")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(222, 30)
+position = Vector2(257.5, 46)
 shape = SubResource("RectangleShape2D_dqkch")
 debug_color = Color(0.963377, 2.59906e-06, 0.499073, 0.42)
 
