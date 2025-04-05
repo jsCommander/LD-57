@@ -9,15 +9,15 @@
 [ext_resource type="Texture2D" uid="uid://upernylpqgyt" path="res://assets/apathy_l_hand.png" id="5_2evik"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hfb2p"]
-size = Vector2(151.5, 252)
+size = Vector2(151.5, 234)
 
 [node name="Apathy" type="CharacterBody2D"]
 collision_layer = 4
 script = ExtResource("1_xtmrb")
 
 [node name="Node2D" type="Node2D" parent="."]
-position = Vector2(19, -27)
-scale = Vector2(0.9, 0.9)
+position = Vector2(16, -14)
+scale = Vector2(0.75, 0.75)
 
 [node name="R_hand" type="Sprite2D" parent="Node2D"]
 position = Vector2(-106, 45)
@@ -43,5 +43,5 @@ position = Vector2(56, 23)
 texture = ExtResource("5_2evik")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2, 20)
+position = Vector2(-2, 11)
 shape = SubResource("RectangleShape2D_hfb2p")
