@@ -14,6 +14,7 @@ enum State {
 
 @onready var ladder_left_timer: Timer = $LadderLeftTimer
 @onready var body: Node2D = $Body
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 var current_state: State = State.WALK
 var near_ladder: bool = false
@@ -63,8 +64,10 @@ func _process_moving(_delta):
 	var direction = Input.get_axis("move_left", "move_right")
 	if direction:
 		velocity.x = direction * speed
+		animation_player.play("walk")
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
+		animation_player.play("idle")
 
 	if velocity.x > 0:
 		body.scale.x = 1

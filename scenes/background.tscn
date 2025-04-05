@@ -1,12 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://cxwpbqdjku22q"]
-
-[ext_resource type="Texture2D" uid="uid://dyfnbtcidoei8" path="res://assets/background.png" id="1_bkp1e"]
+[gd_scene format=3 uid="uid://cxwpbqdjku22q"]
 
 [node name="Parallax2D" type="Parallax2D"]
-scroll_scale = Vector2(0.3, 0.3)
+scroll_scale = Vector2(0, 0)
 repeat_size = Vector2(1920, 1080)
 repeat_times = 5
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_bkp1e")
 centered = false
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-11, 1, 1951, 3, 1954, 1097, -83, 1097)
