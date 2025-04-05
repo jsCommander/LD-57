@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://yad5l7dhf03j" path="res://levels/level_2.gd" id="1_ep78u"]
 [ext_resource type="PackedScene" uid="uid://cxwpbqdjku22q" path="res://scenes/background.tscn" id="2_ep78u"]
-[ext_resource type="TileSet" uid="uid://jjd6rvt4m5ge" path="res://resources/tiles.tres" id="3_at1ld"]
-[ext_resource type="TileSet" uid="uid://8tojerl1ij7a" path="res://resources/ladders.tres" id="4_sd18g"]
+[ext_resource type="TileSet" uid="uid://dltkbukrhnn1f" path="res://resources/tiles.tres" id="3_at1ld"]
+[ext_resource type="TileSet" uid="uid://c8npqyxoogpjs" path="res://resources/ladders.tres" id="4_sd18g"]
 [ext_resource type="PackedScene" uid="uid://deik5xqc7hnib" path="res://scenes/player.tscn" id="5_vm7no"]
 [ext_resource type="AudioStream" uid="uid://bq0qxgub5ogdk" path="res://assets/soundtrack/My Demons.mp3" id="6_hbb88"]
 [ext_resource type="PackedScene" uid="uid://chwi340uuu0ki" path="res://scenes/run_away_enemy.tscn" id="7_ep78u"]

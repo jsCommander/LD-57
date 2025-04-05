@@ -1,10 +1,9 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://jjd6rvt4m5ge"]
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://dltkbukrhnn1f"]
 
-[ext_resource type="Texture2D" uid="uid://e7k2ih7y8vya" path="res://assets/tiles.png" id="1_4eb6g"]
+[ext_resource type="Texture2D" uid="uid://e7k2ih7y8vya" path="res://assets/tiles.png" id="1_d4xpn"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4eb6g"]
-texture = ExtResource("1_4eb6g")
-<<<<<<< Updated upstream
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ifi7j"]
+texture = ExtResource("1_d4xpn")
 texture_region_size = Vector2i(128, 128)
 1:1/0 = 0
 1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
@@ -12,25 +11,8 @@ texture_region_size = Vector2i(128, 128)
 2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
 3:1/0 = 0
 3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
-=======
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
-1:0/0 = 0
-1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25.1075, -128, 128, -128, 128, 128, -6.27686, 50.2148)
-2:0/0 = 0
-2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, 128, -128, 128)
-3:0/0 = 0
-3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 5.84615, -128, -21.969, 59.6302, -128, 128)
-4:0/0 = 0
-4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-21.969, -128, 128, -128, 128, 0, 0, -15.6922)
-5:0/0 = 0
-5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 128, -128, 128, -9.41528, -128, -9.41528)
-6:0/0 = 0
-6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -128, 9.41528, -128, 9.41528, -3.13843, -128, 3.13843)
->>>>>>> Stashed changes
 
 [resource]
 tile_size = Vector2i(128, 128)
 physics_layer_0/collision_layer = 1
-sources/1 = SubResource("TileSetAtlasSource_4eb6g")
+sources/0 = SubResource("TileSetAtlasSource_ifi7j")

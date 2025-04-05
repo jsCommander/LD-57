@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=4 uid="uid://brrmtidjxmmx7"]
 
 [ext_resource type="PackedScene" uid="uid://cxwpbqdjku22q" path="res://scenes/background.tscn" id="1_8l0e1"]
-[ext_resource type="TileSet" uid="uid://jjd6rvt4m5ge" path="res://resources/tiles.tres" id="3_jq78i"]
-[ext_resource type="TileSet" uid="uid://8tojerl1ij7a" path="res://resources/ladders.tres" id="4_lsnkt"]
+[ext_resource type="TileSet" uid="uid://dltkbukrhnn1f" path="res://resources/tiles.tres" id="3_jq78i"]
+[ext_resource type="TileSet" uid="uid://c8npqyxoogpjs" path="res://resources/ladders.tres" id="4_lsnkt"]
 [ext_resource type="PackedScene" uid="uid://deik5xqc7hnib" path="res://scenes/player.tscn" id="5_wj73x"]
 [ext_resource type="AudioStream" uid="uid://bq0qxgub5ogdk" path="res://assets/soundtrack/My Demons.mp3" id="6_0unm6"]
 [ext_resource type="PackedScene" uid="uid://debltl1orljua" path="res://scenes/attack_enemy.tscn" id="6_8l0e1"]
@@ -16,11 +16,7 @@ tile_map_data = PackedByteArray("AAD8/wEAAQADAAEAAAD9/wEAAQADAAEAAAD+/wEAAQACAAE
 tile_set = ExtResource("3_jq78i")
 
 [node name="ladders" type="TileMapLayer" parent="."]
-<<<<<<< Updated upstream
 tile_map_data = PackedByteArray("AAD8/wAAAQACAAMAAAD8////AQACAAMAAAD9//7/AQACAAMAAAD+//7/AQACAAMAAAD///7/AQACAAMAAAAAAP7/AQACAAMAAAABAP7/AQACAAMAAAD8//7/AQACAAMAAAACAP7/AQACAAMAAAACAP//AQACAAMAAAACAAAAAQACAAMAAAA=")
-=======
-tile_map_data = PackedByteArray("AAD8/wAAAQAAAAMAAAD8////AQAAAAMAAAD9//7/AQABAAIAAAD+//7/AQABAAIAAAD///7/AQABAAIAAAAAAP7/AQABAAIAAAABAP7/AQABAAIAAAD8//7/AQAAAAIAAAACAP7/AQAAAAIAAAACAP//AQAAAAMAAAA=")
->>>>>>> Stashed changes
 tile_set = ExtResource("4_lsnkt")
 
 [node name="Player" parent="." instance=ExtResource("5_wj73x")]
