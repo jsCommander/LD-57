@@ -9,12 +9,23 @@ enum State {
 @export var jump_velocity: float = -400.0
 @export var gravity: float = 980.0
 @export var ladder_speed: float = 200.0
+@export var max_hitpoint: int = 20
+
 
 @onready var ladder_left_timer: Timer = $LadderLeftTimer
 @onready var body: Node2D = $Body
 
 var current_state: State = State.WALK
 var near_ladder: bool = false
+
+var hitpoint: Hitpoint = Hitpoint.new()
+
+func _ready():
+	hitpoint.value = max_hitpoint
+	hitpoint.max_value = max_hitpoint
+	hitpoint.health_depleted.connect(_death)
+
+	G.player = self
 
 func _physics_process(delta):
 	match current_state:
@@ -92,3 +103,6 @@ func _on_ladder_detector_body_exited(_body: Node2D) -> void:
 func _on_ladder_left_timer_timeout() -> void:
 	Logger.log_info(self.name, 'ladder left timer timeout')
 	near_ladder = false
+
+func _death():
+	SM.change_scene(T.GameScreens.LOOSE_SCREEN)

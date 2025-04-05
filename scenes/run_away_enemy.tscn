@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://chwi340uuu0ki"]
+
+[ext_resource type="Script" uid="uid://d0l33iihpl6dt" path="res://scenes/run_away_enemy.gd" id="1_17ilc"]
+[ext_resource type="Texture2D" uid="uid://r63errlyyjmf" path="res://assets/images/ghost.png" id="2_nyd8t"]
+[ext_resource type="PackedScene" uid="uid://bsdpatsyf7p6i" path="res://scenes/health_bar.tscn" id="3_xfmw3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hfb2p"]
+size = Vector2(151, 215)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_17ilc"]
+size = Vector2(1200, 20)
+
+[node name="RunAwayEnemy" type="CharacterBody2D"]
+collision_layer = 4
+script = ExtResource("1_17ilc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 1, 1, 1)
+position = Vector2(-4.00001, -5.00001)
+scale = Vector2(0.627451, 0.588506)
+texture = ExtResource("2_nyd8t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, -2.5)
+shape = SubResource("RectangleShape2D_hfb2p")
+
+[node name="ProgressBar" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_xfmw3")]
+offset_left = -122.0
+offset_top = -167.0
+offset_right = 132.0
+offset_bottom = -140.0
+target = NodePath("..")
+
+[node name="PlayerDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
+shape = SubResource("RectangleShape2D_17ilc")
+debug_color = Color(0.995802, 0, 0.19871, 0.42)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
+[connection signal="body_exited" from="PlayerDetector" to="." method="_on_player_detector_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

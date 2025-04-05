@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=3 uid="uid://dsjux3rq4b4j3"]
+
+[ext_resource type="Script" uid="uid://qf4pjbsdorbf" path="res://scenes/flashlight.gd" id="1_bh8a8"]
+[ext_resource type="Texture2D" uid="uid://b1c5bywv41vrx" path="res://assets/images/cristal.png" id="2_bis5n"]
+[ext_resource type="Shader" uid="uid://4geb5ow36clx" path="res://shared/shaders/glow.gdshader" id="3_o7kai"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qlg0r"]
+shader = ExtResource("3_o7kai")
+shader_parameter/glow_color = Color(0.726063, 0.427715, 0.00643893, 1)
+shader_parameter/glow_power = 2.0
+shader_parameter/glow_radius = 1.0
+shader_parameter/glow_shift = 1.0
+shader_parameter/blink_speed = 3.0
+shader_parameter/blink_min = 0.5
+shader_parameter/blink_max = 1.0
+
+[sub_resource type="Gradient" id="Gradient_tuyoq"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fjrip"]
+gradient = SubResource("Gradient_tuyoq")
+fill = 1
+fill_from = Vector2(0.46789, 0.442661)
+fill_to = Vector2(0.747706, 0.364679)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dqkch"]
+size = Vector2(275, 20)
+
+[node name="Flashlight" type="Area2D"]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_bh8a8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 0.00784314, 1)
+position = Vector2(90, 18)
+rotation = -1.56964
+scale = Vector2(0.167983, 0.125876)
+texture = ExtResource("2_bis5n")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_qlg0r")
+position = Vector2(303, 21)
+scale = Vector2(9.42188, 3.14376)
+texture = SubResource("GradientTexture2D_fjrip")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(257.5, 5)
+shape = SubResource("RectangleShape2D_dqkch")
+debug_color = Color(0.963377, 2.59906e-06, 0.499073, 0.42)

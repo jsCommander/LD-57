@@ -18,5 +18,4 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_md0e3")
 max_value = 5.0
 step = 1.0
 rounded = true
-fill_mode = 1
 script = ExtResource("1_1bvlm")
