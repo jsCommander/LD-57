@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@export var next_scene: T.GameScreens
+@export var next_scene: G.GameScreens
 @export var wait_time: float = 3.0
 
 @onready var timer: Timer = %Timer

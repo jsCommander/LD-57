@@ -1,13 +1,16 @@
-[gd_scene load_steps=7 format=4 uid="uid://brrmtidjxmmx7"]
+[gd_scene load_steps=8 format=4 uid="uid://brrmtidjxmmx7"]
 
 [ext_resource type="PackedScene" uid="uid://cxwpbqdjku22q" path="res://scenes/background.tscn" id="1_8l0e1"]
+[ext_resource type="Script" uid="uid://dleg1cmqj65of" path="res://levels/level_3.gd" id="1_lfnxh"]
 [ext_resource type="TileSet" uid="uid://dltkbukrhnn1f" path="res://resources/tiles.tres" id="3_jq78i"]
 [ext_resource type="TileSet" uid="uid://c8npqyxoogpjs" path="res://resources/ladders.tres" id="4_lsnkt"]
 [ext_resource type="PackedScene" uid="uid://deik5xqc7hnib" path="res://scenes/player.tscn" id="5_wj73x"]
-[ext_resource type="AudioStream" uid="uid://bq0qxgub5ogdk" path="res://assets/soundtrack/My Demons.mp3" id="6_0unm6"]
 [ext_resource type="PackedScene" uid="uid://debltl1orljua" path="res://scenes/attack_enemy.tscn" id="6_8l0e1"]
+[ext_resource type="AudioStream" uid="uid://dd7dafa5p2r35" path="res://assets/soundtrack/Inner Beasts_1.wav" id="6_lfnxh"]
 
 [node name="Level3" type="Node2D"]
+script = ExtResource("1_lfnxh")
+next_level = 4
 
 [node name="Parallax2D" parent="." instance=ExtResource("1_8l0e1")]
 
@@ -22,8 +25,9 @@ tile_set = ExtResource("4_lsnkt")
 [node name="Player" parent="." instance=ExtResource("5_wj73x")]
 position = Vector2(-321, -26)
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("6_0unm6")
-
 [node name="AttackEnemy" parent="." instance=ExtResource("6_8l0e1")]
 position = Vector2(636, 16)
+
+[node name="LevelSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_lfnxh")
+autoplay = true

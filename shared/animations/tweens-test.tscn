@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://q3n3lagjut60"]
 
-[ext_resource type="Texture2D" uid="uid://r63errlyyjmf" path="res://assets/images/ghost.png" id="1_uyl57"]
+[ext_resource type="Texture2D" path="res://assets/images/ghost.png" id="1_uyl57"]
 [ext_resource type="Script" uid="uid://brp24j0lepr3a" path="res://shared/animations/tweens_test.gd" id="1_whq6p"]
 
 [node name="Tweens-test" type="Node2D"]

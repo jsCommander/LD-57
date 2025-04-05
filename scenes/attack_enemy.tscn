@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://debltl1orljua"]
+[gd_scene load_steps=5 format=3 uid="uid://debltl1orljua"]
 
 [ext_resource type="Script" uid="uid://dge36l308wxru" path="res://scenes/attack_enemy.gd" id="1_gtrua"]
-[ext_resource type="Texture2D" uid="uid://r63errlyyjmf" path="res://assets/images/ghost.png" id="2_c5x8o"]
 [ext_resource type="PackedScene" uid="uid://bsdpatsyf7p6i" path="res://scenes/health_bar.tscn" id="3_tf00u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hfb2p"]
@@ -14,12 +13,6 @@ size = Vector2(1200, 376)
 collision_layer = 4
 script = ExtResource("1_gtrua")
 max_hitpoint = 100
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(1, 0, 0, 1)
-position = Vector2(-4.00001, -5.00001)
-scale = Vector2(0.627451, 0.588506)
-texture = ExtResource("2_c5x8o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-8.5, -70.5)

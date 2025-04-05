@@ -3,7 +3,7 @@ extends CanvasLayer
 @export var title: String
 @export var image: Texture2D
 @export var audio: AudioStream
-@export var next_scene: T.GameScreens
+@export var next_scene: G.GameScreens
 
 @onready var texture_rect: TextureRect = %TextureRect
 @onready var title_label: Label = %TitleLabel

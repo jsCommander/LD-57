@@ -1,13 +1,13 @@
 [gd_scene load_steps=12 format=3 uid="uid://d4ckty183hkuv"]
 
 [ext_resource type="Material" uid="uid://djnkdybdcp2pe" path="res://shared/shaders/test/shader.tres" id="1_fjrgq"]
-[ext_resource type="Texture2D" uid="uid://b1c5bywv41vrx" path="res://assets/images/cristal.png" id="2_i4i0w"]
+[ext_resource type="Texture2D" path="res://assets/images/cristal.png" id="2_i4i0w"]
 [ext_resource type="Texture2D" uid="uid://bkx38bgx0iydc" path="res://shared/shaders/test/square.tres" id="3_vg146"]
-[ext_resource type="Texture2D" uid="uid://r63errlyyjmf" path="res://assets/images/ghost.png" id="4_i4i0w"]
+[ext_resource type="Texture2D" path="res://assets/images/ghost.png" id="4_i4i0w"]
 [ext_resource type="Shader" uid="uid://4geb5ow36clx" path="res://shared/shaders/glow.gdshader" id="5_noysr"]
-[ext_resource type="Texture2D" uid="uid://ch87hqpwq0xel" path="res://assets/images/Shader_Test.png" id="6_a4wwu"]
+[ext_resource type="Texture2D" path="res://assets/images/Shader_Test.png" id="6_a4wwu"]
 [ext_resource type="FontFile" uid="uid://gf7lik85q2ku" path="res://assets/fonts/GlitchGoblin.ttf" id="7_frv5a"]
-[ext_resource type="AudioStream" uid="uid://bq0qxgub5ogdk" path="res://assets/soundtrack/My Demons.mp3" id="8_fdyw8"]
+[ext_resource type="AudioStream" path="res://assets/soundtrack/My Demons.mp3" id="8_fdyw8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_frv5a"]
 shader = ExtResource("5_noysr")

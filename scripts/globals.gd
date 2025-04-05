@@ -26,3 +26,6 @@ func _ready():
 	SM.add_scene(GameScreens.LEVEL1, "res://levels/level_1.tscn")
 	SM.add_scene(GameScreens.LEVEL2, "res://levels/level_2.tscn")
 	SM.add_scene(GameScreens.LEVEL3, "res://levels/level_3.tscn")
+	SM.add_scene(GameScreens.LEVEL4, "res://levels/level_4.tscn")
+	SM.add_scene(GameScreens.LEVEL5, "res://levels/level_5.tscn")
+	SM.add_scene(GameScreens.LEVEL6, "res://levels/level_6.tscn")

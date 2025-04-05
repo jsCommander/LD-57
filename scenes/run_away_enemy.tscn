@@ -1,11 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://chwi340uuu0ki"]
+[gd_scene load_steps=10 format=3 uid="uid://chwi340uuu0ki"]
 
 [ext_resource type="Script" uid="uid://d0l33iihpl6dt" path="res://scenes/run_away_enemy.gd" id="1_17ilc"]
-[ext_resource type="Texture2D" uid="uid://r63errlyyjmf" path="res://assets/images/ghost.png" id="2_nyd8t"]
-[ext_resource type="PackedScene" uid="uid://bsdpatsyf7p6i" path="res://scenes/health_bar.tscn" id="3_xfmw3"]
+[ext_resource type="Texture2D" uid="uid://dnqc673d6tg2s" path="res://assets/fear_r_hand.png" id="2_ke30q"]
+[ext_resource type="Texture2D" uid="uid://bilaeouplg7uh" path="res://assets/fear_l_leg.png" id="3_dm2rh"]
+[ext_resource type="Texture2D" uid="uid://b2ia3rawmgkpr" path="res://assets/fear_r_leg.png" id="4_uuw5d"]
+[ext_resource type="Texture2D" uid="uid://ta8jte2i81r0" path="res://assets/fear_body.png" id="5_ke30q"]
+[ext_resource type="Texture2D" uid="uid://b0e8gs25twa0u" path="res://assets/fear_face.png" id="6_dm2rh"]
+[ext_resource type="Texture2D" uid="uid://cbmkhb1omtm8t" path="res://assets/fear_l_hand.png" id="7_uuw5d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hfb2p"]
-size = Vector2(155, 50)
+size = Vector2(92, 108)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_17ilc"]
 size = Vector2(1200, 20)
@@ -14,22 +18,36 @@ size = Vector2(1200, 20)
 collision_layer = 4
 script = ExtResource("1_17ilc")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0, 1, 1, 1)
-position = Vector2(-4.00001, -5.00001)
-scale = Vector2(0.627451, 0.588506)
-texture = ExtResource("2_nyd8t")
+[node name="Node2D" type="Node2D" parent="."]
+scale = Vector2(0.6, 0.6)
+
+[node name="R_hand" type="Sprite2D" parent="Node2D"]
+position = Vector2(-90.75, -60.25)
+texture = ExtResource("2_ke30q")
+
+[node name="L_leg" type="Sprite2D" parent="Node2D"]
+position = Vector2(-37.75, 89.75)
+texture = ExtResource("3_dm2rh")
+
+[node name="R_leg" type="Sprite2D" parent="Node2D"]
+position = Vector2(29.25, 90.75)
+texture = ExtResource("4_uuw5d")
+
+[node name="Body" type="Sprite2D" parent="Node2D"]
+position = Vector2(0.250006, -24.25)
+texture = ExtResource("5_ke30q")
+
+[node name="Face" type="Sprite2D" parent="Node2D"]
+position = Vector2(-0.749994, 2.75001)
+texture = ExtResource("6_dm2rh")
+
+[node name="L_hand" type="Sprite2D" parent="Node2D"]
+position = Vector2(91.25, -74.25)
+texture = ExtResource("7_uuw5d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 64)
+position = Vector2(-1, 19)
 shape = SubResource("RectangleShape2D_hfb2p")
-
-[node name="ProgressBar" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_xfmw3")]
-offset_left = -122.0
-offset_top = -167.0
-offset_right = 132.0
-offset_bottom = -140.0
-target = NodePath("..")
 
 [node name="PlayerDetector" type="Area2D" parent="."]
 collision_layer = 0

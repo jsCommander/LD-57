@@ -1,16 +1,20 @@
 [gd_scene load_steps=5 format=3 uid="uid://lfd54t3x8ogf"]
 
 [ext_resource type="Script" uid="uid://cy3ld2r4ol3xx" path="res://scenes/splash_screen.gd" id="1_3mj2l"]
-[ext_resource type="Texture2D" uid="uid://dhw1n7qhw3lfc" path="res://assets/images/scary_background.png" id="2_vbcv6"]
-[ext_resource type="AudioStream" uid="uid://c5eji463liob4" path="res://assets/soundtrack/Epic intro (Cover).wav" id="3_a2ut7"]
 [ext_resource type="FontFile" uid="uid://c6pc4jiv0rtn5" path="res://assets/fonts/ZeroCool.woff2" id="4_5osyx"]
+
+[sub_resource type="Resource" id="Resource_hsxvm"]
+metadata/__load_path__ = "res://assets/images/scary_background.png"
+
+[sub_resource type="Resource" id="Resource_4gp4q"]
+metadata/__load_path__ = "res://assets/soundtrack/Epic intro (Cover).wav"
 
 [node name="SplashScreen" type="CanvasLayer"]
 script = ExtResource("1_3mj2l")
 title = "LD 57"
-image = ExtResource("2_vbcv6")
-audio = ExtResource("3_a2ut7")
-next_scene = 2
+image = SubResource("Resource_hsxvm")
+audio = SubResource("Resource_4gp4q")
+next_scene = 1
 
 [node name="TextureRect" type="TextureRect" parent="."]
 unique_name_in_owner = true
@@ -77,7 +81,6 @@ text = "Exit
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 unique_name_in_owner = true
-stream = ExtResource("3_a2ut7")
 
 [connection signal="button_down" from="VBoxContainer/StartButton" to="." method="_handle_start_pressed"]
 [connection signal="button_down" from="VBoxContainer/ExitButton" to="." method="_handle_exit_pressed"]

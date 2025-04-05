@@ -1,28 +1,47 @@
-[gd_scene load_steps=5 format=3 uid="uid://bxsicim2l68vv"]
+[gd_scene load_steps=9 format=3 uid="uid://bxsicim2l68vv"]
 
-[ext_resource type="Texture2D" uid="uid://r63errlyyjmf" path="res://assets/images/ghost.png" id="1_lrsje"]
 [ext_resource type="Script" uid="uid://cle7es0c2m65e" path="res://scenes/simple_enemy.gd" id="1_xtmrb"]
-[ext_resource type="PackedScene" uid="uid://bsdpatsyf7p6i" path="res://scenes/health_bar.tscn" id="3_0j3ol"]
+[ext_resource type="Texture2D" uid="uid://bbtpy8tsc1g2x" path="res://assets/apathy_r_hand.png" id="2_7cvra"]
+[ext_resource type="Texture2D" uid="uid://b4jgvslakpy1l" path="res://assets/apathy_body.png" id="2_i5j6j"]
+[ext_resource type="Texture2D" uid="uid://cg3rw4gsww7a3" path="res://assets/apathy_face.png" id="3_i5j6j"]
+[ext_resource type="Texture2D" uid="uid://b2qecd0lwdwvj" path="res://assets/apathy_l_leg.png" id="3_ydqf1"]
+[ext_resource type="Texture2D" uid="uid://cli2dpy7wqqx1" path="res://assets/apathy_r_leg.png" id="4_ku60i"]
+[ext_resource type="Texture2D" uid="uid://upernylpqgyt" path="res://assets/apathy_l_hand.png" id="5_2evik"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hfb2p"]
-size = Vector2(151, 215)
+size = Vector2(151.5, 252)
 
-[node name="SimpleEnemy" type="CharacterBody2D"]
+[node name="Apathy" type="CharacterBody2D"]
 collision_layer = 4
 script = ExtResource("1_xtmrb")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-4.00001, -5.00001)
-scale = Vector2(0.627451, 0.588506)
-texture = ExtResource("1_lrsje")
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(19, -27)
+scale = Vector2(0.9, 0.9)
+
+[node name="R_hand" type="Sprite2D" parent="Node2D"]
+position = Vector2(-106, 45)
+texture = ExtResource("2_7cvra")
+
+[node name="L_leg" type="Sprite2D" parent="Node2D"]
+position = Vector2(-53, 160)
+texture = ExtResource("3_ydqf1")
+
+[node name="R_leg" type="Sprite2D" parent="Node2D"]
+position = Vector2(9, 166)
+texture = ExtResource("4_ku60i")
+
+[node name="Body" type="Sprite2D" parent="Node2D"]
+texture = ExtResource("2_i5j6j")
+
+[node name="Face" type="Sprite2D" parent="Node2D"]
+position = Vector2(-42, -35)
+texture = ExtResource("3_i5j6j")
+
+[node name="L_hand" type="Sprite2D" parent="Node2D"]
+position = Vector2(56, 23)
+texture = ExtResource("5_2evik")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1.5, -2.5)
+position = Vector2(-2, 20)
 shape = SubResource("RectangleShape2D_hfb2p")
-
-[node name="ProgressBar" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_0j3ol")]
-offset_left = -122.0
-offset_top = -167.0
-offset_right = 132.0
-offset_bottom = -140.0
-target = NodePath("..")

@@ -1,17 +1,17 @@
 [gd_scene load_steps=9 format=4 uid="uid://dk1rfpsjxg4wu"]
 
-[ext_resource type="Script" uid="uid://bpud4um0c18kw" path="res://levels/level_1.gd" id="1_g5mgy"]
+[ext_resource type="Script" uid="uid://bcmvxg14vnk3k" path="res://levels/level_5.gd" id="1_v5ho1"]
 [ext_resource type="PackedScene" uid="uid://cxwpbqdjku22q" path="res://scenes/background.tscn" id="2_v5ho1"]
 [ext_resource type="TileSet" uid="uid://dltkbukrhnn1f" path="res://resources/tiles.tres" id="3_ldpug"]
 [ext_resource type="TileSet" uid="uid://c8npqyxoogpjs" path="res://resources/ladders.tres" id="4_8vr3t"]
 [ext_resource type="PackedScene" uid="uid://deik5xqc7hnib" path="res://scenes/player.tscn" id="5_a58qw"]
-[ext_resource type="AudioStream" uid="uid://bq0qxgub5ogdk" path="res://assets/soundtrack/My Demons.mp3" id="6_ij65d"]
-[ext_resource type="PackedScene" path="res://scenes/simple_enemy.tscn" id="7_gci8k"]
+[ext_resource type="PackedScene" uid="uid://bxsicim2l68vv" path="res://scenes/simple_enemy.tscn" id="7_gci8k"]
+[ext_resource type="AudioStream" uid="uid://dd7dafa5p2r35" path="res://assets/soundtrack/Inner Beasts_1.wav" id="8_ldpug"]
 [ext_resource type="PackedScene" uid="uid://chwi340uuu0ki" path="res://scenes/run_away_enemy.tscn" id="8_v5ho1"]
 
 [node name="Level5" type="Node2D"]
-script = ExtResource("1_g5mgy")
-next_level = 2
+script = ExtResource("1_v5ho1")
+next_level = 6
 
 [node name="Parallax2D" parent="." instance=ExtResource("2_v5ho1")]
 
@@ -30,9 +30,6 @@ max_hitpoint = 1
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(0.995, 0.995)
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("6_ij65d")
 
 [node name="SimpleEnemy" parent="." instance=ExtResource("7_gci8k")]
 position = Vector2(-781, -4200)
@@ -53,3 +50,7 @@ max_hitpoint = 1
 [node name="RunAwayEnemy" parent="." instance=ExtResource("8_v5ho1")]
 position = Vector2(-250, 286)
 speed = 1000.0
+
+[node name="LevelSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_ldpug")
+autoplay = true

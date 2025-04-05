@@ -1,17 +1,17 @@
 [gd_scene load_steps=9 format=4 uid="uid://d15khgd06vshi"]
 
-[ext_resource type="Script" uid="uid://bpud4um0c18kw" path="res://levels/level_1.gd" id="1_xn6mk"]
+[ext_resource type="Script" uid="uid://c3kj24a23msq4" path="res://levels/level_6.gd" id="1_xn6mk"]
 [ext_resource type="PackedScene" uid="uid://cxwpbqdjku22q" path="res://scenes/background.tscn" id="2_3t5n2"]
 [ext_resource type="TileSet" uid="uid://dltkbukrhnn1f" path="res://resources/tiles.tres" id="3_v2dqh"]
 [ext_resource type="TileSet" uid="uid://c8npqyxoogpjs" path="res://resources/ladders.tres" id="4_nu44e"]
 [ext_resource type="PackedScene" uid="uid://debltl1orljua" path="res://scenes/attack_enemy.tscn" id="5_3t5n2"]
 [ext_resource type="PackedScene" uid="uid://deik5xqc7hnib" path="res://scenes/player.tscn" id="5_kx1xp"]
-[ext_resource type="AudioStream" uid="uid://bq0qxgub5ogdk" path="res://assets/soundtrack/My Demons.mp3" id="6_m516p"]
 [ext_resource type="PackedScene" uid="uid://chwi340uuu0ki" path="res://scenes/run_away_enemy.tscn" id="8_t207q"]
+[ext_resource type="AudioStream" uid="uid://dd7dafa5p2r35" path="res://assets/soundtrack/Inner Beasts_1.wav" id="8_xn6mk"]
 
 [node name="Level6" type="Node2D"]
 script = ExtResource("1_xn6mk")
-next_level = 2
+next_level = 12
 
 [node name="Parallax2D" parent="." instance=ExtResource("2_3t5n2")]
 
@@ -31,9 +31,6 @@ max_hitpoint = 1
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("6_m516p")
-
 [node name="RunAwayEnemy" parent="." instance=ExtResource("8_t207q")]
 position = Vector2(-1780, -621)
 speed = 1000.0
@@ -49,3 +46,7 @@ position = Vector2(-816, -650)
 
 [node name="AttackEnemy6" parent="." instance=ExtResource("5_3t5n2")]
 position = Vector2(-1639, 12)
+
+[node name="LevelSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_xn6mk")
+autoplay = true
