@@ -32,7 +32,7 @@ fill_to = Vector2(0.747706, 0.364679)
 size = Vector2(275, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
-size = Vector2(51, 36)
+size = Vector2(85, 119)
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
@@ -80,7 +80,7 @@ collision_layer = 0
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LadderDetector"]
-position = Vector2(-0.5, 1)
+position = Vector2(0.5, 8.5)
 shape = SubResource("RectangleShape2D_g2els")
 debug_color = Color(3.36915e-07, 0.621781, 0.551521, 0.42)
 
