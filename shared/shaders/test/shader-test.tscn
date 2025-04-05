@@ -1,9 +1,37 @@
-[gd_scene load_steps=5 format=3 uid="uid://d4ckty183hkuv"]
+[gd_scene load_steps=12 format=3 uid="uid://d4ckty183hkuv"]
 
 [ext_resource type="Material" uid="uid://djnkdybdcp2pe" path="res://shared/shaders/test/shader.tres" id="1_fjrgq"]
 [ext_resource type="Texture2D" uid="uid://b1c5bywv41vrx" path="res://assets/images/cristal.png" id="2_i4i0w"]
 [ext_resource type="Texture2D" uid="uid://bkx38bgx0iydc" path="res://shared/shaders/test/square.tres" id="3_vg146"]
 [ext_resource type="Texture2D" uid="uid://r63errlyyjmf" path="res://assets/images/ghost.png" id="4_i4i0w"]
+[ext_resource type="Shader" uid="uid://4geb5ow36clx" path="res://shared/shaders/glow.gdshader" id="5_noysr"]
+[ext_resource type="Texture2D" uid="uid://ch87hqpwq0xel" path="res://assets/images/Shader_Test.png" id="6_a4wwu"]
+[ext_resource type="FontFile" uid="uid://gf7lik85q2ku" path="res://assets/fonts/GlitchGoblin.ttf" id="7_frv5a"]
+[ext_resource type="AudioStream" uid="uid://bq0qxgub5ogdk" path="res://assets/soundtrack/My Demons.mp3" id="8_fdyw8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_frv5a"]
+shader = ExtResource("5_noysr")
+shader_parameter/glow_color = Color(0.2, 0.6, 0.3, 1)
+shader_parameter/glow_power = 4.7
+shader_parameter/glow_radius = 1.0
+shader_parameter/glow_shift = 1.0
+shader_parameter/blink_speed = 2.9
+shader_parameter/blink_min = 0.1
+shader_parameter/blink_max = 0.4
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8asfq"]
+shader = ExtResource("5_noysr")
+shader_parameter/glow_color = Color(0.2, 0.6, 0.3, 1)
+shader_parameter/glow_power = 2.0
+shader_parameter/glow_radius = 1.0
+shader_parameter/glow_shift = 1.0
+shader_parameter/blink_speed = 3.0
+shader_parameter/blink_min = 0.5
+shader_parameter/blink_max = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_ryh05"]
+font = ExtResource("7_frv5a")
+font_size = 64
 
 [node name="Shader-test" type="Node2D"]
 
@@ -21,8 +49,21 @@ texture = ExtResource("3_vg146")
 position = Vector2(1028, 429)
 texture = ExtResource("4_i4i0w")
 
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_frv5a")
+position = Vector2(968, 608)
+texture = ExtResource("6_a4wwu")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_8asfq")
+offset_left = 342.0
+offset_top = 961.0
+offset_right = 1692.0
+offset_bottom = 1036.0
+text = "Зря ты решил доесть ту пропавшую шавуху"
+label_settings = SubResource("LabelSettings_ryh05")
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
 material = ExtResource("1_fjrgq")
@@ -40,3 +81,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_fdyw8")
+autoplay = true

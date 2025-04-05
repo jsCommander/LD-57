@@ -1,15 +1,11 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://djnkdybdcp2pe"]
 
-[ext_resource type="Shader" uid="uid://cscvupan84sia" path="res://shared/shaders/test.gdshader" id="1_nq5ke"]
+[ext_resource type="Shader" uid="uid://cklchjcvpwwsj" path="res://shared/shaders/vhs_glitch.gdshader" id="1_nq5ke"]
 
 [resource]
 shader = ExtResource("1_nq5ke")
-shader_parameter/u_bgColor = Vector4(1, 1, 1, 1)
-shader_parameter/u_bgColorFactor = 0.4
-shader_parameter/u_patternColor = Vector4(0, 0, 0, 1)
-shader_parameter/u_threshold1 = 0.75
-shader_parameter/u_threshold2 = 0.5
-shader_parameter/u_threshold3 = 0.25
-shader_parameter/u_threshold4 = 0.05
-shader_parameter/u_bgTiling = Vector2(1, 1)
-shader_parameter/u_patternTiling = Vector2(1, 1)
+shader_parameter/range = 0.05
+shader_parameter/noiseQuality = 250.0
+shader_parameter/noiseIntensity = 0.0088
+shader_parameter/offsetIntensity = 0.03
+shader_parameter/colorOffsetIntensity = 1.3
