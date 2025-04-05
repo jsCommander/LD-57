@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bx26swr3idmov"]
+
+[ext_resource type="Texture2D" uid="uid://bg6xd1e3js71u" path="res://assets/images/card.png" id="1_xxwne"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xxwne"]
+size = Vector2(20, 211)
+
+[node name="Ladder" type="StaticBody2D"]
+collision_layer = 8
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, 1.99998)
+scale = Vector2(0.797508, 0.587156)
+texture = ExtResource("1_xxwne")
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(120, 129.5)
+shape = SubResource("RectangleShape2D_xxwne")

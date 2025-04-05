@@ -1,109 +1,94 @@
 class_name Player extends CharacterBody2D
 
+enum State {
+	WALK,
+	IN_AIR
+}
+
 @export var speed: float = 300.0
-@export var prism_count: int = 10
-@export var prism_cooldown: float = 5.0
-@export var shoot_cooldown: float = 0.1
-@export var log_every_n_shots: int = 300
-@export var log_every_n_prisms: int = 5
+@export var jump_velocity: float = -400.0
+@export var gravity: float = 980.0
+@export var ladder_speed: float = 200.0
 
+@onready var ladder_left_timer: Timer = $LadderLeftTimer
 @onready var body: Node2D = $Body
-@onready var marker_2d: Marker2D = $Body/Sprite2D3/Marker2D
-@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
-var lazer_scene = preload("res://scenes/lazer.tscn")
-var hitpoint: Hitpoint = Hitpoint.new()
-var prism_scene = preload("res://scenes/prism.tscn")
-var available_prisms: int
-var prism_cooldown_timer: float = 0.0
-var shoot_cooldown_timer: float = 0.0
-var lazer_used_count: int = 0
-var prism_used_count: int = 0
+var current_state: State = State.WALK
+var near_ladder: bool = false
 
-func _ready() -> void:
-	G.player = self
-	hitpoint.health_depleted.connect(_on_health_depleted)
-	hitpoint.health_changed.connect(_on_hit)
-	available_prisms = prism_count
-
-func _physics_process(delta: float) -> void:
-	# Перемещение по обеим осям
-	var direction_x = Input.get_axis("move_left", "move_right")
-	var direction_y = Input.get_axis("move_up", "move_down")
-	
-	velocity.x = direction_x * speed
-	velocity.y = direction_y * speed
+func _physics_process(delta):
+	match current_state:
+		State.WALK:
+			process_walk_state(delta)
+		State.IN_AIR:
+			process_in_air_state(delta)
 	
 	move_and_slide()
+
+func process_walk_state(_delta):
+	_process_gravity(_delta)
+	_process_moving(_delta)
+
+	if near_ladder:
+		_process_ladder_moving(_delta)
+
+	if !is_on_floor() and !near_ladder:
+		_change_state(State.IN_AIR)
+
+func process_in_air_state(_delta):
+	_process_gravity(_delta)
+	_process_moving(_delta)
+
+	if near_ladder:
+		_process_ladder_moving(_delta)
 	
-	# Всегда поворачиваем игрока в направлении курсора
-	var mouse_pos = get_global_mouse_position()
-	var direction_to_mouse = (mouse_pos - global_position).normalized()
-	body.rotation = direction_to_mouse.angle()
-	
-	# Обновляем таймер перезарядки призм
-	if available_prisms < prism_count and prism_cooldown_timer <= 0:
-		available_prisms += 1
-		if available_prisms < prism_count:
-			prism_cooldown_timer = prism_cooldown
-	
-	if prism_cooldown_timer > 0:
-		prism_cooldown_timer -= delta
+	if is_on_floor():
+		_change_state(State.WALK)
+
+func _process_gravity(_delta):
+	velocity.y += gravity * _delta
+
+func _process_moving(_delta):
+	var direction = Input.get_axis("move_left", "move_right")
+	if direction:
+		velocity.x = direction * speed
+	else:
+		velocity.x = move_toward(velocity.x, 0, speed)
+
+	if velocity.x > 0:
+		body.scale.x = 1
+	elif velocity.x < 0:
+		body.scale.x = -1
+
+func _process_ladder_moving(_delta):
+	var direction = Input.get_axis("move_up", "move_down")
+	if direction:
+		velocity.y = direction * ladder_speed
+	else:
+		velocity.y = move_toward(velocity.y, 0, ladder_speed)
+
+func _change_state(new_state: State):
+	var old_state = current_state
+	current_state = new_state
+
+	Logger.log_info(self.name, 'state changed from %s to %s' % [_get_state_name(old_state), _get_state_name(new_state)])
+
+func _get_state_name(state: State) -> String:
+	return Utils.get_enum_key_name(State, state)
+
+func _on_ladder_detector_body_entered(_body: Node2D) -> void:
+	if !ladder_left_timer.is_stopped():
+		ladder_left_timer.stop()
+		Logger.log_info(self.name, 'ladder entered, stop timer')
 		
-	# Обрабатываем стрельбу при зажатой кнопке
-	if Input.is_action_pressed("shoot") and shoot_cooldown_timer <= 0:
-		shoot()
-		shoot_cooldown_timer = shoot_cooldown
-		
-	if shoot_cooldown_timer > 0:
-		shoot_cooldown_timer -= delta
+	Logger.log_info(self.name, 'ladder entered')
+	near_ladder = true
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("use_power"):
-		spawn_prism()
-
-func shoot() -> void:
-	# Получаем направление от маркера к курсору мыши
-	var mouse_pos = get_global_mouse_position()
-	var direction = (mouse_pos - marker_2d.global_position).normalized()
-	
-	# Создаем лазер в позиции маркера
-	var lazer = lazer_scene.instantiate()
-	get_parent().add_child(lazer)
-	lazer.global_position = marker_2d.global_position
-	lazer.direction = direction
-	lazer_used_count += 1
-	if lazer_used_count % log_every_n_shots == 0:
-		Analytics.add_event('lazer_used_count', {
-			'lazer_used_count': lazer_used_count
-		})
+func _on_ladder_detector_body_exited(_body: Node2D) -> void:
+	ladder_left_timer.start()
+	Logger.log_info(self.name, 'ladder left, start timer')
 
 
-func _on_health_depleted() -> void:
-	SM.change_scene(T.GameScreens.LOOSE_SCREEN)
-	Analytics.add_event('player_loose')
-	
-func _on_hit(_damage: int) -> void:
-	audio_stream_player_2d.play()
-
-func spawn_prism() -> void:
-	if available_prisms <= 0:
-		Logger.log_info(self.name, "Нет доступных призм!")
-		return
-		
-	# Получаем позицию мыши
-	var mouse_pos = get_global_mouse_position()
-	
-	# Создаем призму в позиции мыши
-	var prism = prism_scene.instantiate()
-	get_parent().add_child(prism)
-	prism.global_position = mouse_pos
-	prism_used_count += 1
-	if prism_used_count % log_every_n_prisms == 0:
-		Analytics.add_event('prism_used', {
-			'prism_used_count': prism_used_count
-		})
-	# Уменьшаем количество доступных призм и запускаем таймер перезарядки
-	available_prisms -= 1
-	if available_prisms < prism_count:
-		prism_cooldown_timer = prism_cooldown
+func _on_ladder_left_timer_timeout() -> void:
+	Logger.log_info(self.name, 'ladder left timer timeout')
+	near_ladder = false

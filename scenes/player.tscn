@@ -1,80 +1,93 @@
-[gd_scene load_steps=11 format=3 uid="uid://b30iackfha5tb"]
+[gd_scene load_steps=12 format=3 uid="uid://deik5xqc7hnib"]
 
-[ext_resource type="Script" uid="uid://cblvkokb46g13" path="res://scenes/player.gd" id="1_3vyb7"]
-[ext_resource type="PackedScene" uid="uid://bsdpatsyf7p6i" path="res://scenes/health_bar.tscn" id="2_g2els"]
-[ext_resource type="Shader" uid="uid://4geb5ow36clx" path="res://shared/shaders/glow.gdshader" id="3_qhqgy"]
-[ext_resource type="AudioStream" uid="uid://bpukhwb02h3wh" path="res://assets/sfx/hurt.wav" id="4_dqkch"]
+[ext_resource type="Texture2D" uid="uid://co5hjivg3e8ua" path="res://assets/images/boy.png" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://gvpfkslkmj8j" path="res://scenes/player.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://b1c5bywv41vrx" path="res://assets/images/cristal.png" id="3_qhqgy"]
+[ext_resource type="Script" uid="uid://qf4pjbsdorbf" path="res://scenes/flashlight.gd" id="3_qlg0r"]
+[ext_resource type="Shader" uid="uid://4geb5ow36clx" path="res://shared/shaders/glow.gdshader" id="4_dqkch"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_x05ig"]
-size = Vector2(218, 216)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qhqgy"]
+size = Vector2(110, 156)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_dqkch"]
-shader = ExtResource("3_qhqgy")
-shader_parameter/glow_color = Color(0.137255, 0.847059, 1, 1)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qlg0r"]
+shader = ExtResource("4_dqkch")
+shader_parameter/glow_color = Color(0.726063, 0.427715, 0.00643893, 1)
 shader_parameter/glow_power = 2.0
 shader_parameter/glow_radius = 1.0
 shader_parameter/glow_shift = 1.0
-shader_parameter/blink_speed = 1.0
-shader_parameter/blink_min = 0.2
+shader_parameter/blink_speed = 3.0
+shader_parameter/blink_min = 0.5
 shader_parameter/blink_max = 1.0
 
-[sub_resource type="Gradient" id="Gradient_qhqgy"]
-offsets = PackedFloat32Array(0.467532, 1)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+[sub_resource type="Gradient" id="Gradient_tuyoq"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_dqkch"]
-gradient = SubResource("Gradient_qhqgy")
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fjrip"]
+gradient = SubResource("Gradient_tuyoq")
 fill = 1
-fill_from = Vector2(0.5, 0.53211)
-fill_to = Vector2(1, 0.571101)
+fill_from = Vector2(0.46789, 0.442661)
+fill_to = Vector2(0.747706, 0.364679)
 
-[sub_resource type="Gradient" id="Gradient_c4w8v"]
-offsets = PackedFloat32Array(0, 0.840909)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dqkch"]
+size = Vector2(275, 20)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_qlg0r"]
-gradient = SubResource("Gradient_c4w8v")
-fill = 1
-fill_from = Vector2(0.5, 0.486239)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
+size = Vector2(51, 36)
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D"]
 collision_layer = 2
-script = ExtResource("1_3vyb7")
-speed = 700.0
-prism_cooldown = 2.0
-shoot_cooldown = 0.2
+script = ExtResource("1_g2els")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 0)
-shape = SubResource("RectangleShape2D_x05ig")
+position = Vector2(3, 7)
+shape = SubResource("RectangleShape2D_qhqgy")
 
-[node name="ProgressBar" parent="." node_paths=PackedStringArray("target") instance=ExtResource("2_g2els")]
-offset_left = -120.0
-offset_top = -173.0
-offset_right = 134.0
-offset_bottom = -146.0
-target = NodePath("..")
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.5, 0.5)
 
 [node name="Body" type="Node2D" parent="."]
 
-[node name="Sprite2D3" type="Sprite2D" parent="Body"]
-material = SubResource("ShaderMaterial_dqkch")
-position = Vector2(46, -4)
-rotation = 1.55995
-scale = Vector2(0.59527, 3.2571)
-texture = SubResource("GradientTexture2D_dqkch")
+[node name="Sprite2D" type="Sprite2D" parent="Body"]
+position = Vector2(-1, 0)
+scale = Vector2(0.264552, 0.207275)
+texture = ExtResource("1_3vyb7")
 
-[node name="Marker2D" type="Marker2D" parent="Body/Sprite2D3"]
-position = Vector2(-0.422974, -21.1866)
-rotation = -1.51153
-scale = Vector2(0.307543, 1.67982)
-skew = -0.0572801
+[node name="Flashlight" type="Area2D" parent="Body"]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("3_qlg0r")
 
-[node name="Sprite2D2" type="Sprite2D" parent="Body"]
-material = SubResource("ShaderMaterial_dqkch")
-position = Vector2(0, 1)
-scale = Vector2(4.65625, 4.32812)
-texture = SubResource("GradientTexture2D_qlg0r")
+[node name="Sprite2D" type="Sprite2D" parent="Body/Flashlight"]
+modulate = Color(1, 1, 0.00784314, 1)
+position = Vector2(90, 18)
+rotation = -1.56964
+scale = Vector2(0.167983, 0.125876)
+texture = ExtResource("3_qhqgy")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_dqkch")
+[node name="Sprite2D2" type="Sprite2D" parent="Body/Flashlight"]
+material = SubResource("ShaderMaterial_qlg0r")
+position = Vector2(303, 21)
+scale = Vector2(9.42188, 3.14376)
+texture = SubResource("GradientTexture2D_fjrip")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body/Flashlight"]
+position = Vector2(257.5, 5)
+shape = SubResource("RectangleShape2D_dqkch")
+debug_color = Color(0.963377, 2.59906e-06, 0.499073, 0.42)
+
+[node name="LadderDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LadderDetector"]
+position = Vector2(-0.5, 1)
+shape = SubResource("RectangleShape2D_g2els")
+debug_color = Color(3.36915e-07, 0.621781, 0.551521, 0.42)
+
+[node name="LadderLeftTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[connection signal="body_entered" from="LadderDetector" to="." method="_on_ladder_detector_body_entered"]
+[connection signal="body_exited" from="LadderDetector" to="." method="_on_ladder_detector_body_exited"]
+[connection signal="timeout" from="LadderLeftTimer" to="." method="_on_ladder_left_timer_timeout"]

@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://bxsicim2l68vv"]
+
+[ext_resource type="Texture2D" uid="uid://r63errlyyjmf" path="res://assets/images/ghost.png" id="1_lrsje"]
+[ext_resource type="Script" uid="uid://cle7es0c2m65e" path="res://scenes/simple_enemy.gd" id="1_xtmrb"]
+[ext_resource type="PackedScene" uid="uid://bsdpatsyf7p6i" path="res://scenes/health_bar.tscn" id="3_0j3ol"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hfb2p"]
+size = Vector2(151, 215)
+
+[node name="SimpleEnemy" type="CharacterBody2D"]
+collision_layer = 4
+script = ExtResource("1_xtmrb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-4.00001, -5.00001)
+scale = Vector2(0.627451, 0.588506)
+texture = ExtResource("1_lrsje")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.5, -2.5)
+shape = SubResource("RectangleShape2D_hfb2p")
+
+[node name="ProgressBar" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_0j3ol")]
+offset_left = -122.0
+offset_top = -167.0
+offset_right = 132.0
+offset_bottom = -140.0
+target = NodePath("..")
