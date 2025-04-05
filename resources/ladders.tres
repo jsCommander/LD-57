@@ -4,9 +4,19 @@
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_veydx"]
 texture = ExtResource("1_e3ioe")
+<<<<<<< Updated upstream
 texture_region_size = Vector2i(128, 128)
 2:3/0 = 0
 2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, 64, -64, 64, 64, -64, 64)
+=======
+texture_region_size = Vector2i(256, 256)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -56.5, -56.5, -53.5, -44, -128, 41, -128, 31.5, -41, 128, -44, 128, 22, 47, 28, 44, 128, -47, 128, -56.5, 34.5, -128, 28)
+0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-63, -128, 53.3533, -128, 47.0764, 128, -69.0454, 128)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-128, -43.938, 128, -43.938, 128, 47.0764, -128, 43.938)
+>>>>>>> Stashed changes
 
 [resource]
 tile_size = Vector2i(128, 128)

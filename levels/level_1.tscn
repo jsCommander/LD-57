@@ -5,7 +5,7 @@
 [ext_resource type="TileSet" uid="uid://8tojerl1ij7a" path="res://resources/ladders.tres" id="4_5ot28"]
 [ext_resource type="PackedScene" uid="uid://deik5xqc7hnib" path="res://scenes/player.tscn" id="5_aerfg"]
 [ext_resource type="AudioStream" uid="uid://bq0qxgub5ogdk" path="res://assets/soundtrack/My Demons.mp3" id="6_nmsli"]
-[ext_resource type="PackedScene" uid="uid://bxsicim2l68vv" path="res://scenes/simple_enemy.tscn" id="7_betor"]
+[ext_resource type="PackedScene" path="res://scenes/simple_enemy.tscn" id="7_betor"]
 [ext_resource type="PackedScene" uid="uid://cxwpbqdjku22q" path="res://scenes/background.tscn" id="7_gwceb"]
 
 [node name="Level1" type="Node2D"]

@@ -5,10 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://bsdpatsyf7p6i" path="res://scenes/health_bar.tscn" id="3_tf00u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hfb2p"]
-size = Vector2(151, 215)
+size = Vector2(207, 351)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_17ilc"]
-size = Vector2(1200, 20)
+size = Vector2(1200, 376)
 
 [node name="AttackEnemy" type="CharacterBody2D"]
 collision_layer = 4
@@ -22,7 +22,7 @@ scale = Vector2(0.627451, 0.588506)
 texture = ExtResource("2_c5x8o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1.5, -2.5)
+position = Vector2(-8.5, -70.5)
 shape = SubResource("RectangleShape2D_hfb2p")
 
 [node name="ProgressBar" parent="." node_paths=PackedStringArray("target") instance=ExtResource("3_tf00u")]
@@ -37,6 +37,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetector"]
+position = Vector2(0, -49)
 shape = SubResource("RectangleShape2D_17ilc")
 debug_color = Color(0.995802, 0, 0.19871, 0.42)
 

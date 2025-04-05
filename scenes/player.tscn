@@ -719,8 +719,11 @@ script = ExtResource("1_g2els")
 position = Vector2(3, 7)
 shape = SubResource("RectangleShape2D_qhqgy")
 
+<<<<<<< Updated upstream
 [node name="Camera2D" type="Camera2D" parent="."]
 
+=======
+>>>>>>> Stashed changes
 [node name="Body" type="Node2D" parent="."]
 
 [node name="l_leg" type="Sprite2D" parent="Body"]
@@ -728,6 +731,7 @@ position = Vector2(28, 58)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_ur7pv")
 
+<<<<<<< Updated upstream
 [node name="r_leg" type="Sprite2D" parent="Body"]
 position = Vector2(-22, 60)
 scale = Vector2(0.5, 0.5)
@@ -781,6 +785,10 @@ texture = ExtResource("6_tuyoq")
 position = Vector2(-4, -124)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("7_fjrip")
+=======
+[node name="Flashlight" parent="Body" instance=ExtResource("3_qhqgy")]
+position = Vector2(9, -1)
+>>>>>>> Stashed changes
 
 [node name="LadderDetector" type="Area2D" parent="."]
 collision_layer = 0

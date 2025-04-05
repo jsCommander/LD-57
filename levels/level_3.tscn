@@ -16,7 +16,11 @@ tile_map_data = PackedByteArray("AAD8/wEAAQADAAEAAAD9/wEAAQADAAEAAAD+/wEAAQACAAE
 tile_set = ExtResource("3_jq78i")
 
 [node name="ladders" type="TileMapLayer" parent="."]
+<<<<<<< Updated upstream
 tile_map_data = PackedByteArray("AAD8/wAAAQACAAMAAAD8////AQACAAMAAAD9//7/AQACAAMAAAD+//7/AQACAAMAAAD///7/AQACAAMAAAAAAP7/AQACAAMAAAABAP7/AQACAAMAAAD8//7/AQACAAMAAAACAP7/AQACAAMAAAACAP//AQACAAMAAAACAAAAAQACAAMAAAA=")
+=======
+tile_map_data = PackedByteArray("AAD8/wAAAQAAAAMAAAD8////AQAAAAMAAAD9//7/AQABAAIAAAD+//7/AQABAAIAAAD///7/AQABAAIAAAAAAP7/AQABAAIAAAABAP7/AQABAAIAAAD8//7/AQAAAAIAAAACAP7/AQAAAAIAAAACAP//AQAAAAMAAAA=")
+>>>>>>> Stashed changes
 tile_set = ExtResource("4_lsnkt")
 
 [node name="Player" parent="." instance=ExtResource("5_wj73x")]
