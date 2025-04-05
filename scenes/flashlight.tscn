@@ -34,12 +34,12 @@ script = ExtResource("1_bh8a8")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_qlg0r")
-position = Vector2(303, 21)
+position = Vector2(204, 33)
 scale = Vector2(9.42188, 3.14376)
 texture = SubResource("GradientTexture2D_fjrip")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(257.5, 24.5)
+position = Vector2(222, 30)
 shape = SubResource("RectangleShape2D_dqkch")
 debug_color = Color(0.963377, 2.59906e-06, 0.499073, 0.42)
 

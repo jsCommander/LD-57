@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://deik5xqc7hnib"]
+[gd_scene load_steps=18 format=3 uid="uid://deik5xqc7hnib"]
 
 [ext_resource type="Script" uid="uid://gvpfkslkmj8j" path="res://scenes/player.gd" id="1_g2els"]
 [ext_resource type="PackedScene" uid="uid://dsjux3rq4b4j3" path="res://scenes/flashlight.tscn" id="3_qhqgy"]
@@ -13,6 +13,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qhqgy"]
 size = Vector2(110, 156)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y4r1p"]
+size = Vector2(84, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g2els"]
 size = Vector2(85, 119)
@@ -719,6 +722,15 @@ script = ExtResource("1_g2els")
 position = Vector2(3, 7)
 shape = SubResource("RectangleShape2D_qhqgy")
 
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(3, 4)
+shape = SubResource("RectangleShape2D_y4r1p")
+debug_color = Color(0.972361, 0, 0.441578, 0.42)
+
 [node name="Body" type="Node2D" parent="."]
 
 [node name="l_leg" type="Sprite2D" parent="Body"]
@@ -798,6 +810,7 @@ libraries = {
 &"": SubResource("AnimationLibrary_d2wvv")
 }
 
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
 [connection signal="body_entered" from="LadderDetector" to="." method="_on_ladder_detector_body_entered"]
 [connection signal="body_exited" from="LadderDetector" to="." method="_on_ladder_detector_body_exited"]
 [connection signal="timeout" from="LadderLeftTimer" to="." method="_on_ladder_left_timer_timeout"]

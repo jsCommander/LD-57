@@ -27,9 +27,6 @@ func add_scenes(scenes: Dictionary[int, String]):
 
 func change_scene(new_scene_key: int):
 	Logger.log_info(LOGGER_NAME, "Changing scene to: %s" % new_scene_key)
-	if new_scene_key == current_scene_key:
-		Logger.log_error(LOGGER_NAME, "Already on scene: %s" % new_scene_key)
-		return
 	
 	current_scene_key = new_scene_key
 	
@@ -50,11 +47,15 @@ func change_scene(new_scene_key: int):
 	var scene_instance = scene_resource.instantiate()
 	Logger.log_debug(LOGGER_NAME, "Scene instantiated: %s" % scene_resource.resource_path)
 
-	spawn.add_child(scene_instance)
+	spawn.call_deferred("add_child",scene_instance)
 	current_scene = scene_instance
 	Logger.log_info(LOGGER_NAME, "Scene %s is active" % scene_instance.name)
 	
 	end_transition()
+
+func restart_scene():
+	Logger.log_info(LOGGER_NAME, "Restarting scene %s" % current_scene_key)
+	change_scene(current_scene_key)
 
 func start_transition():
 	canvas_layer.visible = true
