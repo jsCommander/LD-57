@@ -6,10 +6,7 @@ enum State {
 }
 
 @export var speed: float = 300.0
-@export var jump_velocity: float = -400.0
-@export var gravity: float = 980.0
 @export var ladder_speed: float = 200.0
-@export var max_hitpoint: int = 20
 
 @onready var ladder_left_timer: Timer = $LadderLeftTimer
 @onready var body: Node2D = $Body
@@ -49,7 +46,7 @@ func process_in_air_state(_delta):
 		_change_state(State.WALK)
 
 func _process_gravity(_delta):
-	velocity.y += gravity * _delta
+	velocity.y += G.gravity * _delta
 
 func _process_moving(_delta):
 	var direction_x = Input.get_axis("move_left", "move_right")
@@ -107,6 +104,9 @@ func _on_ladder_left_timer_timeout() -> void:
 		Logger.log_info(self.name, 'stop to grab ladder')
 
 func _death():
+	if is_dead:
+		return
+	
 	is_dead = true
 	AM.play_sound(G.GameSounds.PLAYER_DEATH)
 	EB.player_death.emit()
