@@ -122,8 +122,6 @@ offset_left = 0.776189
 offset_top = -1.55238
 offset_right = 209.776
 offset_bottom = 149.448
-text = "TEST TEXT
-"
 label_settings = SubResource("LabelSettings_6udrg")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

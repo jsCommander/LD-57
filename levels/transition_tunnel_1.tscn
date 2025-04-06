@@ -1,6 +1,6 @@
+[gd_scene load_steps=8 format=4 uid="uid://d24w6n3xyr326"]
 
-
-[ext_resource type="Script" uid="uid://bpud4um0c18kw" path="res://levels/level_1.gd" id="1_b5s1h"]
+[ext_resource type="Script" uid="uid://db2rhqg007g0t" path="res://levels/transition_tunnel_1.gd" id="1_b5s1h"]
 [ext_resource type="PackedScene" uid="uid://cxwpbqdjku22q" path="res://scenes/background.tscn" id="2_mld13"]
 [ext_resource type="PackedScene" uid="uid://deik5xqc7hnib" path="res://scenes/player.tscn" id="3_mnm5p"]
 [ext_resource type="TileSet" uid="uid://dltkbukrhnn1f" path="res://resources/tiles.tres" id="5_dkhlk"]
@@ -10,14 +10,13 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mld13"]
 size = Vector2(697, 266)
 
-[node name="Level1" type="Node2D"]
+[node name="Tunnel1" type="Node2D"]
 script = ExtResource("1_b5s1h")
-next_level = 2
 
 [node name="Parallax2D" parent="." instance=ExtResource("2_mld13")]
 
 [node name="Player" parent="." instance=ExtResource("3_mnm5p")]
-position = Vector2(-271, 170)
+position = Vector2(-345, 162)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 

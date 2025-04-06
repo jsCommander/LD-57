@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=4 uid="uid://cfx4lc2u6ys43"]
 
-[ext_resource type="Script" path="res://levels/level_4.gd" id="1_dmnu2"]
+[ext_resource type="Script" uid="uid://crfvfyjauycrg" path="res://levels/level_4.gd" id="1_dmnu2"]
 [ext_resource type="PackedScene" uid="uid://cxwpbqdjku22q" path="res://scenes/background.tscn" id="2_dmnu2"]
 [ext_resource type="TileSet" uid="uid://dltkbukrhnn1f" path="res://resources/tiles.tres" id="3_sc6c1"]
 [ext_resource type="TileSet" uid="uid://c8npqyxoogpjs" path="res://resources/ladders.tres" id="4_ng40l"]
