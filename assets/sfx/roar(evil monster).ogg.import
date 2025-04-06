@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://blnsxdtl311o8"
+path="res://.godot/imported/roar(evil monster).ogg-e419742906f22a1f6129fc27e7b2abdb.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sfx/roar(evil monster).ogg"
+dest_files=["res://.godot/imported/roar(evil monster).ogg-e419742906f22a1f6129fc27e7b2abdb.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

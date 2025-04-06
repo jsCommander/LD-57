@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b2qecd0lwdwvj" path="res://assets/apathy_l_leg.png" id="3_ydqf1"]
 [ext_resource type="Texture2D" uid="uid://cli2dpy7wqqx1" path="res://assets/apathy_r_leg.png" id="4_ku60i"]
 [ext_resource type="Texture2D" uid="uid://upernylpqgyt" path="res://assets/apathy_l_hand.png" id="5_2evik"]
-[ext_resource type="AudioStream" uid="uid://b12rbfei2uqdy" path="res://assets/sfx/snoring monster(phlegmatic).wav" id="9_ku60i"]
+[ext_resource type="AudioStream" uid="uid://cv4m5bo1toely" path="res://assets/sfx/snoring monster(phlegmatic).ogg" id="9_ku60i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hfb2p"]
 size = Vector2(151.5, 234)

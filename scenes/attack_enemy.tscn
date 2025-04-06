@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bnsog3156qms3" path="res://assets/angry_body.png" id="5_8ktik"]
 [ext_resource type="Texture2D" uid="uid://c87oyy050mxje" path="res://assets/angry_face.png" id="6_8ktik"]
 [ext_resource type="Texture2D" uid="uid://nvh4pfvyutvf" path="res://assets/angry_l_hand.png" id="7_6q36y"]
-[ext_resource type="AudioStream" uid="uid://dcymq50rtikqe" path="res://assets/sfx/roar(evil monster).wav" id="8_8ktik"]
+[ext_resource type="AudioStream" uid="uid://blnsxdtl311o8" path="res://assets/sfx/roar(evil monster).ogg" id="8_8ktik"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hfb2p"]
 size = Vector2(207, 344)

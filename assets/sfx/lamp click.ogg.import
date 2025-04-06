@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cqtnbol7iu2hd"
+path="res://.godot/imported/lamp click.ogg-6e233ba58ff3385f7fd328c40c273b73.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sfx/lamp click.ogg"
+dest_files=["res://.godot/imported/lamp click.ogg-6e233ba58ff3385f7fd328c40c273b73.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

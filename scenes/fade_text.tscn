@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://45iw8wflcc00"]
 
 [ext_resource type="Script" uid="uid://x7po30hufru0" path="res://scenes/fade_text.gd" id="1_yj4t7"]
-[ext_resource type="FontFile" uid="uid://cj8ms6fqdf4sj" path="res://assets/fonts/DirtyHarold.ttf" id="3_veqh8"]
+[ext_resource type="FontFile" uid="uid://bjaowql51p35p" path="res://assets/fonts/DirtyHarold.woff2" id="3_veqh8"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_6udrg"]
 font = ExtResource("3_veqh8")

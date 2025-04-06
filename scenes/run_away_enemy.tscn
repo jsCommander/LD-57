@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://ta8jte2i81r0" path="res://assets/fear_body.png" id="5_ke30q"]
 [ext_resource type="Texture2D" uid="uid://b0e8gs25twa0u" path="res://assets/fear_face.png" id="6_dm2rh"]
 [ext_resource type="Texture2D" uid="uid://cbmkhb1omtm8t" path="res://assets/fear_l_hand.png" id="7_uuw5d"]
-[ext_resource type="AudioStream" uid="uid://ca3hw7mnk48yk" path="res://assets/sfx/scared monster.wav" id="8_ke30q"]
+[ext_resource type="AudioStream" uid="uid://d1i2hxw8kd88x" path="res://assets/sfx/scared monster.ogg" id="8_ke30q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hfb2p"]
 size = Vector2(92, 108)

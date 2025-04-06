@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://d1i2hxw8kd88x"
+path="res://.godot/imported/scared monster.ogg-d0aa52bf26e631f9485a2945da617297.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sfx/scared monster.ogg"
+dest_files=["res://.godot/imported/scared monster.ogg-d0aa52bf26e631f9485a2945da617297.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

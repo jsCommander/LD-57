@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cv4m5bo1toely"
+path="res://.godot/imported/snoring monster(phlegmatic).ogg-854d2731e27dba9c8fbfcda13d01fbc7.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/sfx/snoring monster(phlegmatic).ogg"
+dest_files=["res://.godot/imported/snoring monster(phlegmatic).ogg-854d2731e27dba9c8fbfcda13d01fbc7.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
