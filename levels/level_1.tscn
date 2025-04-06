@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://cfy3q5lickf7s"]
+[gd_scene load_steps=11 format=4 uid="uid://cfy3q5lickf7s"]
 
 [ext_resource type="Script" uid="uid://bpud4um0c18kw" path="res://levels/level_1.gd" id="1_l53as"]
 [ext_resource type="PackedScene" uid="uid://deik5xqc7hnib" path="res://scenes/player.tscn" id="5_aerfg"]
@@ -8,6 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://cxwpbqdjku22q" path="res://scenes/background.tscn" id="7_gwceb"]
 [ext_resource type="TileSet" uid="uid://c8npqyxoogpjs" path="res://resources/ladders.tres" id="7_l53as"]
 [ext_resource type="PackedScene" uid="uid://cfcckfar7vcg6" path="res://scenes/next_level.tscn" id="8_l53as"]
+[ext_resource type="PackedScene" uid="uid://45iw8wflcc00" path="res://scenes/fade_text.tscn" id="9_3sk1a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_08mmt"]
+size = Vector2(536, 326)
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_l53as")
@@ -17,7 +21,7 @@ next_level = 2
 scroll_offset = Vector2(-1729, -1039)
 
 [node name="Player" parent="." instance=ExtResource("5_aerfg")]
-position = Vector2(-296, 170)
+position = Vector2(-454, 163)
 ladder_speed = 200.0
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -39,3 +43,12 @@ position = Vector2(874, 223)
 [node name="NextLevel" parent="." instance=ExtResource("8_l53as")]
 position = Vector2(771, 386)
 next_level = 2
+
+[node name="FadeText2" parent="." instance=ExtResource("9_3sk1a")]
+position = Vector2(-274, -120)
+text = "Phlegma... The first. 
+I must reach the light."
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FadeText2"]
+position = Vector2(231, 114)
+shape = SubResource("RectangleShape2D_08mmt")
