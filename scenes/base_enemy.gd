@@ -3,6 +3,7 @@ class_name BaseEnemy extends CharacterBody2D
 @export var max_hitpoint: int = 30
 
 @onready var animation_player: AnimationPlayer = %AnimationPlayer
+@onready var hit_animation_player: AnimationPlayer = $HitAnimationPlayer
 
 signal death(enemy: BaseEnemy)
 
@@ -28,6 +29,7 @@ func _update(_delta: float) -> void:
 
 func hit(damage: int) -> void:
 	hitpoint.take_damage(damage)
+	hit_animation_player.play("hit")
 	Logger.log_info(self.name, "hit for %s" % damage)
 
 func _death():

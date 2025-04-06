@@ -21,6 +21,9 @@ func _ready():
 	G.player = self
 
 func _physics_process(delta):
+	if is_dead:
+		return
+	
 	match current_state:
 		State.WALK:
 			process_walk_state(delta)
@@ -108,7 +111,9 @@ func _death():
 		return
 	
 	is_dead = true
+	animation_player.play("death")
 	AM.play_sound(G.GameSounds.PLAYER_DEATH)
+	await animation_player.animation_finished
 	EB.player_death.emit()
 
 func _on_hit_box_body_entered(_body: Node2D) -> void:

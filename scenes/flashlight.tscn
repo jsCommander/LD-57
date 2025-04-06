@@ -1,24 +1,98 @@
-[gd_scene load_steps=9 format=3 uid="uid://dsjux3rq4b4j3"]
+[gd_scene load_steps=10 format=3 uid="uid://dsjux3rq4b4j3"]
 
 [ext_resource type="Script" uid="uid://qf4pjbsdorbf" path="res://scenes/flashlight.gd" id="1_bh8a8"]
 [ext_resource type="Texture2D" uid="uid://j8an7lttsml1" path="res://assets/light.png" id="3_gdags"]
-[ext_resource type="Shader" uid="uid://4geb5ow36clx" path="res://shared/shaders/glow.gdshader" id="3_o7kai"]
 [ext_resource type="Texture2D" uid="uid://dbhx8dsmwgg7u" path="res://assets/latter.png" id="4_bis5n"]
 [ext_resource type="AudioStream" uid="uid://fsdkir15sxbo" path="res://assets/sfx/lamp click.wav" id="5_gdags"]
 [ext_resource type="Texture2D" uid="uid://6jbaj5hgnwsg" path="res://assets/latter_fire.png" id="5_o7kai"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_qlg0r"]
-shader = ExtResource("3_o7kai")
-shader_parameter/glow_color = Color(1, 0.138575, 0.097877, 0.631373)
-shader_parameter/glow_power = 5.3
-shader_parameter/glow_radius = 1.7
-shader_parameter/glow_shift = 1.0
-shader_parameter/blink_speed = 1.0
-shader_parameter/blink_min = 0.1
-shader_parameter/blink_max = 1.0
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dqkch"]
 size = Vector2(275, 102)
+
+[sub_resource type="Animation" id="Animation_o7kai"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Light:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(4, 21), Vector2(4, 21), Vector2(4, 21)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Light:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0146493, -0.0198702]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Light:modulate")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.537255), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_gdags"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Light:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(8, 15)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Light:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Light:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kxkgb"]
+_data = {
+&"RESET": SubResource("Animation_gdags"),
+&"idle": SubResource("Animation_o7kai")
+}
 
 [node name="Flashlight" type="Area2D"]
 collision_layer = 0
@@ -27,9 +101,9 @@ script = ExtResource("1_bh8a8")
 hit_cooldown = 0.5
 
 [node name="Light" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_qlg0r")
-position = Vector2(202, 8)
+position = Vector2(8, 15)
 texture = ExtResource("3_gdags")
+offset = Vector2(188, -14)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(257.5, 46)
@@ -47,3 +121,10 @@ texture = ExtResource("5_o7kai")
 
 [node name="DamageSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_gdags")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_kxkgb")
+}
+autoplay = "idle"
+speed_scale = 0.5

@@ -25,19 +25,19 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("player/watch:position")
+tracks/0/path = NodePath("back/player/watch:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(568, 396)]
+"values": [Vector2(467.999, 387)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("player/watch:rotation")
+tracks/1/path = NodePath("back/player/watch:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -54,19 +54,19 @@ step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("player/watch:position")
+tracks/0/path = NodePath("back/player/watch:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(474, 360), Vector2(470, 365), Vector2(474, 360)]
+"values": [Vector2(465, 389), Vector2(470, 365), Vector2(466.5, 383.5)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("player/watch:rotation")
+tracks/1/path = NodePath("back/player/watch:rotation")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -94,8 +94,9 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_4gp4q")
 
-[node name="original" type="TextureRect" parent="."]
+[node name="original" type="TextureRect" parent="back"]
 visible = false
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -103,7 +104,8 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_vbcv6")
 
-[node name="patient" type="TextureRect" parent="."]
+[node name="patient" type="TextureRect" parent="back"]
+layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -116,32 +118,30 @@ grow_horizontal = 0
 grow_vertical = 0
 texture = ExtResource("4_a2ut7")
 
-[node name="player" type="TextureRect" parent="."]
-anchors_preset = -1
-anchor_left = 0.135417
-anchor_top = 0.107407
-anchor_right = 0.472917
-anchor_bottom = 0.903704
-texture = ExtResource("3_3mj2l")
-metadata/_edit_use_anchors_ = true
-
-[node name="watch" type="TextureRect" parent="player"]
+[node name="player" type="TextureRect" parent="back"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.361111
-anchor_top = 0.312791
-anchor_right = 0.527778
-anchor_bottom = 0.504651
-offset_left = 334.0
-offset_top = 127.0
-offset_right = 334.0
-offset_bottom = 127.0
+offset_left = 257.0
+offset_top = 113.0
+offset_right = 905.0
+offset_bottom = 973.0
+texture = ExtResource("3_3mj2l")
+
+[node name="watch" type="TextureRect" parent="back/player"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 467.999
+offset_top = -42.9996
+offset_right = 575.999
+offset_bottom = 122.0
+grow_vertical = 2
 pivot_offset = Vector2(96, 13)
 texture = ExtResource("6_w4c0s")
-metadata/_edit_use_anchors_ = true
 
-[node name="title" type="TextureRect" parent="."]
+[node name="title" type="TextureRect" parent="back"]
 material = SubResource("ShaderMaterial_w4c0s")
+layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
