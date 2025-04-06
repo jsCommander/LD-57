@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bxsicim2l68vv" path="res://scenes/simple_enemy.tscn" id="3_fxdii"]
 [ext_resource type="TileSet" uid="uid://dltkbukrhnn1f" path="res://resources/tiles.tres" id="4_scbuh"]
 [ext_resource type="TileSet" uid="uid://c8npqyxoogpjs" path="res://resources/ladders.tres" id="5_3qaei"]
-[ext_resource type="AudioStream" uid="uid://dd7dafa5p2r35" path="res://assets/soundtrack/Inner Beasts_1.wav" id="6_l6rue"]
+[ext_resource type="AudioStream" uid="uid://dd7dafa5p2r35" path="res://assets/soundtrack/inner_beast.wav" id="6_l6rue"]
 [ext_resource type="PackedScene" uid="uid://chwi340uuu0ki" path="res://scenes/run_away_enemy.tscn" id="7_yf0y6"]
 [ext_resource type="PackedScene" uid="uid://debltl1orljua" path="res://scenes/attack_enemy.tscn" id="8_cfr24"]
 

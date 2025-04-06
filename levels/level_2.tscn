@@ -1,11 +1,10 @@
-[gd_scene load_steps=8 format=4 uid="uid://ct5s2i5wabor7"]
+[gd_scene load_steps=7 format=4 uid="uid://ct5s2i5wabor7"]
 
 [ext_resource type="Script" uid="uid://yad5l7dhf03j" path="res://levels/level_2.gd" id="1_ep78u"]
 [ext_resource type="PackedScene" uid="uid://cxwpbqdjku22q" path="res://scenes/background.tscn" id="2_ep78u"]
 [ext_resource type="TileSet" uid="uid://dltkbukrhnn1f" path="res://resources/tiles.tres" id="3_at1ld"]
 [ext_resource type="TileSet" uid="uid://c8npqyxoogpjs" path="res://resources/ladders.tres" id="4_sd18g"]
 [ext_resource type="PackedScene" uid="uid://deik5xqc7hnib" path="res://scenes/player.tscn" id="5_vm7no"]
-[ext_resource type="AudioStream" uid="uid://dd7dafa5p2r35" path="res://assets/soundtrack/Inner Beasts_1.wav" id="7_dfjjl"]
 [ext_resource type="PackedScene" uid="uid://chwi340uuu0ki" path="res://scenes/run_away_enemy.tscn" id="7_ep78u"]
 
 [node name="Level2" type="Node2D"]
@@ -29,7 +28,3 @@ position = Vector2(-445, 37)
 
 [node name="RunAwayEnemy" parent="." instance=ExtResource("7_ep78u")]
 position = Vector2(511, 51)
-
-[node name="LevelSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_dfjjl")
-autoplay = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://debltl1orljua"]
+[gd_scene load_steps=16 format=3 uid="uid://debltl1orljua"]
 
 [ext_resource type="Script" uid="uid://dge36l308wxru" path="res://scenes/attack_enemy.gd" id="1_gtrua"]
 [ext_resource type="Texture2D" uid="uid://btehscxum78s2" path="res://assets/angry_r_hand.png" id="2_8ktik"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://c87oyy050mxje" path="res://assets/angry_face.png" id="6_8ktik"]
 [ext_resource type="Texture2D" uid="uid://nvh4pfvyutvf" path="res://assets/angry_l_hand.png" id="7_6q36y"]
 [ext_resource type="AudioStream" uid="uid://dcymq50rtikqe" path="res://assets/sfx/roar(evil monster).wav" id="8_8ktik"]
-[ext_resource type="AudioStream" uid="uid://1flyqhqd5710" path="res://assets/sfx/monster's death.wav" id="10_ry6jp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hfb2p"]
 size = Vector2(207, 344)
@@ -238,18 +237,6 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("DeathSound:playing")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_8ktik"]
@@ -621,9 +608,6 @@ libraries = {
 &"": SubResource("AnimationLibrary_6q36y")
 }
 autoplay = "idle"
-
-[node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("10_ry6jp")
 
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
 [connection signal="body_exited" from="PlayerDetector" to="." method="_on_player_detector_body_exited"]

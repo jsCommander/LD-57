@@ -21,4 +21,5 @@ func _on_enemy_death(enemy: BaseEnemy) -> void:
 	Logger.log_info(self.name, "Enemy %s died" % enemy.name)
 
 	if enemies.size() == 0:
+		AM.play_sound(G.GameSounds.NEW_LEVEL)
 		SM.change_scene(next_level)

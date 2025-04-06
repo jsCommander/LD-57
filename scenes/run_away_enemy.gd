@@ -9,11 +9,11 @@ class_name RunAwayEnemy extends BaseEnemy
 var is_triggered: bool = false
 
 func _update(_delta: float) -> void:
-	if not is_triggered or not G.player:
-		return
+	var direction = Vector2.ZERO
 
-	var player_position = G.player.position
-	var direction = (position - player_position).normalized()
+	if is_triggered and G.player:
+		var player_position = G.player.position
+		direction = Utils.get_direction_from_target(position, player_position)
 
 	if direction.x:
 		velocity.x = direction.x * speed
@@ -31,10 +31,7 @@ func _on_player_detector_body_entered(_body: Node2D) -> void:
 		Logger.log_info(self.name, "Start running away")
 
 func _on_player_detector_body_exited(_body: Node2D) -> void:
-	if is_dead:
-		return
-		
-	if _body is Player:
+	if _body is Player and timer.is_inside_tree():
 		timer.start()
 		Logger.log_info(self.name, "Start stopping timer")
 

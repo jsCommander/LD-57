@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://chwi340uuu0ki"]
+[gd_scene load_steps=16 format=3 uid="uid://chwi340uuu0ki"]
 
 [ext_resource type="Script" uid="uid://d0l33iihpl6dt" path="res://scenes/run_away_enemy.gd" id="1_17ilc"]
 [ext_resource type="Texture2D" uid="uid://dnqc673d6tg2s" path="res://assets/fear_r_hand.png" id="2_ke30q"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://b0e8gs25twa0u" path="res://assets/fear_face.png" id="6_dm2rh"]
 [ext_resource type="Texture2D" uid="uid://cbmkhb1omtm8t" path="res://assets/fear_l_hand.png" id="7_uuw5d"]
 [ext_resource type="AudioStream" uid="uid://ca3hw7mnk48yk" path="res://assets/sfx/scared monster.wav" id="8_ke30q"]
-[ext_resource type="AudioStream" uid="uid://1flyqhqd5710" path="res://assets/sfx/monster's death.wav" id="9_dm2rh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hfb2p"]
 size = Vector2(92, 108)
@@ -234,18 +233,6 @@ tracks/17/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
-tracks/18/type = "value"
-tracks/18/imported = false
-tracks/18/enabled = true
-tracks/18/path = NodePath("DeathSound:playing")
-tracks/18/interp = 1
-tracks/18/loop_wrap = true
-tracks/18/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
 
 [sub_resource type="Animation" id="Animation_s242c"]
 resource_name = "death"
@@ -322,18 +309,6 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("DeathSound:playing")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_ke30q"]
@@ -703,9 +678,6 @@ libraries = {
 &"": SubResource("AnimationLibrary_dm2rh")
 }
 speed_scale = 2.0
-
-[node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("9_dm2rh")
 
 [connection signal="body_entered" from="PlayerDetector" to="." method="_on_player_detector_body_entered"]
 [connection signal="body_exited" from="PlayerDetector" to="." method="_on_player_detector_body_exited"]

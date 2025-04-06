@@ -33,6 +33,7 @@ func hit(damage: int) -> void:
 func _death():
 	is_dead = true
 	animation_player.play("death")
+	AM.play_sound(G.GameSounds.ENEMY_DEATH)
 	await animation_player.animation_finished
 	death.emit(self)
 	queue_free()

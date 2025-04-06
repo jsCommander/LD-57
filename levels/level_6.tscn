@@ -1,13 +1,12 @@
-[gd_scene load_steps=9 format=4 uid="uid://d15khgd06vshi"]
+[gd_scene load_steps=8 format=4 uid="uid://d15khgd06vshi"]
 
-[ext_resource type="Script" path="res://levels/level_6.gd" id="1_xn6mk"]
+[ext_resource type="Script" uid="uid://c3kj24a23msq4" path="res://levels/level_6.gd" id="1_xn6mk"]
 [ext_resource type="PackedScene" uid="uid://cxwpbqdjku22q" path="res://scenes/background.tscn" id="2_3t5n2"]
 [ext_resource type="TileSet" uid="uid://dltkbukrhnn1f" path="res://resources/tiles.tres" id="3_v2dqh"]
 [ext_resource type="TileSet" uid="uid://c8npqyxoogpjs" path="res://resources/ladders.tres" id="4_nu44e"]
 [ext_resource type="PackedScene" uid="uid://debltl1orljua" path="res://scenes/attack_enemy.tscn" id="5_3t5n2"]
 [ext_resource type="PackedScene" uid="uid://deik5xqc7hnib" path="res://scenes/player.tscn" id="5_kx1xp"]
 [ext_resource type="PackedScene" uid="uid://chwi340uuu0ki" path="res://scenes/run_away_enemy.tscn" id="8_t207q"]
-[ext_resource type="AudioStream" uid="uid://dd7dafa5p2r35" path="res://assets/soundtrack/Inner Beasts_1.wav" id="8_xn6mk"]
 
 [node name="Level6" type="Node2D"]
 script = ExtResource("1_xn6mk")
@@ -44,7 +43,3 @@ position = Vector2(-816, -650)
 
 [node name="AttackEnemy6" parent="." instance=ExtResource("5_3t5n2")]
 position = Vector2(-1639, 12)
-
-[node name="LevelSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_xn6mk")
-autoplay = true

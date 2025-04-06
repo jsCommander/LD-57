@@ -8,14 +8,14 @@ static func random_point_in_rect(rect: Rect2) -> Vector2:
 		randf_range(rect.position.y, rect.end.y)
 	)
 
-static func get_direction_to_target(current_pos: Vector2, target_pos: Vector2) -> Vector2:
-	return (target_pos - current_pos).normalized()
+static func get_direction_to_target(my_position: Vector2, target_position: Vector2) -> Vector2:
+	return (target_position - my_position).normalized()
 
-static func get_distance_to_target(current_pos: Vector2, target_pos: Vector2) -> float:
-	return current_pos.distance_to(target_pos)
+static func get_distance_to_target(my_position: Vector2, target_position: Vector2) -> float:
+	return my_position.distance_to(target_position)
 
-static func get_direction_away_from_target(current_pos: Vector2, target_pos: Vector2) -> Vector2:
-	return (current_pos - target_pos).normalized()
+static func get_direction_from_target(my_position: Vector2, target_position: Vector2) -> Vector2:
+	return (my_position - target_position).normalized()
 
 static func get_random_direction() -> Vector2:
 	var direction := Vector2(randf_range(-1, 1), randf_range(-1, 1)).normalized()

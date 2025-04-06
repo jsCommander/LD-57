@@ -94,11 +94,9 @@ func _on_ladder_detector_body_entered(_body: Node2D) -> void:
 	near_ladder = true
 
 func _on_ladder_detector_body_exited(_body: Node2D) -> void:
-	if is_dead or not ladder_left_timer.is_inside_tree():
-		return
-	
-	ladder_left_timer.start()
-	Logger.log_info(self.name, 'ladder left, start timer')
+	if ladder_left_timer.is_inside_tree():
+		ladder_left_timer.start()
+		Logger.log_info(self.name, 'ladder left, start timer')
 
 
 func _on_ladder_left_timer_timeout() -> void:
@@ -110,6 +108,7 @@ func _on_ladder_left_timer_timeout() -> void:
 
 func _death():
 	is_dead = true
+	AM.play_sound(G.GameSounds.PLAYER_DEATH)
 	EB.player_death.emit()
 
 func _on_hit_box_body_entered(_body: Node2D) -> void:

@@ -4,7 +4,7 @@
 [ext_resource type="TileSet" uid="uid://dltkbukrhnn1f" path="res://resources/tiles.tres" id="2_mjtg0"]
 [ext_resource type="TileSet" uid="uid://c8npqyxoogpjs" path="res://resources/ladders.tres" id="3_swtrm"]
 [ext_resource type="PackedScene" uid="uid://deik5xqc7hnib" path="res://scenes/player.tscn" id="4_8ic0g"]
-[ext_resource type="AudioStream" uid="uid://dd7dafa5p2r35" path="res://assets/soundtrack/Inner Beasts_1.wav" id="6_76rab"]
+[ext_resource type="AudioStream" uid="uid://dd7dafa5p2r35" path="res://assets/soundtrack/inner_beast.wav" id="6_76rab"]
 [ext_resource type="PackedScene" uid="uid://chwi340uuu0ki" path="res://scenes/run_away_enemy.tscn" id="6_86fdk"]
 
 [node name="MovingTest" type="Node2D"]

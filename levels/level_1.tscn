@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://cfy3q5lickf7s"]
+[gd_scene load_steps=7 format=4 uid="uid://cfy3q5lickf7s"]
 
 [ext_resource type="Script" uid="uid://bpud4um0c18kw" path="res://levels/level_1.gd" id="1_l53as"]
 [ext_resource type="PackedScene" uid="uid://deik5xqc7hnib" path="res://scenes/player.tscn" id="5_aerfg"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://bxsicim2l68vv" path="res://scenes/simple_enemy.tscn" id="7_betor"]
 [ext_resource type="PackedScene" uid="uid://cxwpbqdjku22q" path="res://scenes/background.tscn" id="7_gwceb"]
 [ext_resource type="TileSet" uid="uid://c8npqyxoogpjs" path="res://resources/ladders.tres" id="7_l53as"]
-[ext_resource type="AudioStream" uid="uid://dd7dafa5p2r35" path="res://assets/soundtrack/Inner Beasts_1.wav" id="8_l53as"]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_l53as")
@@ -29,7 +28,3 @@ tile_set = ExtResource("6_btoec")
 [node name="ladders" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAD8////AAACAAMAAAD8//7/AAACAAMAAAD8/wAAAAACAAMAAAD8/wEAAAACAAMAAAD9//7/AAACAAMAAAD+//7/AAACAAMAAAD///7/AAACAAMAAAAAAP7/AAACAAMAAAABAP7/AAACAAMAAAACAP7/AAACAAMAAAA=")
 tile_set = ExtResource("7_l53as")
-
-[node name="LevelSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_l53as")
-autoplay = true

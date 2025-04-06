@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b2qecd0lwdwvj" path="res://assets/apathy_l_leg.png" id="3_ydqf1"]
 [ext_resource type="Texture2D" uid="uid://cli2dpy7wqqx1" path="res://assets/apathy_r_leg.png" id="4_ku60i"]
 [ext_resource type="Texture2D" uid="uid://upernylpqgyt" path="res://assets/apathy_l_hand.png" id="5_2evik"]
-[ext_resource type="AudioStream" uid="uid://1flyqhqd5710" path="res://assets/sfx/monster's death.wav" id="8_ydqf1"]
+[ext_resource type="AudioStream" uid="uid://b12rbfei2uqdy" path="res://assets/sfx/snoring monster(phlegmatic).wav" id="9_ku60i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hfb2p"]
 size = Vector2(151.5, 234)
@@ -230,18 +230,6 @@ tracks/17/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
-tracks/18/type = "value"
-tracks/18/imported = false
-tracks/18/enabled = true
-tracks/18/path = NodePath("DeathSound:playing")
-tracks/18/interp = 1
-tracks/18/loop_wrap = true
-tracks/18/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
 
 [sub_resource type="Animation" id="Animation_ln3f4"]
 resource_name = "death"
@@ -316,18 +304,6 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("DeathSound:playing")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_ku60i"]
@@ -528,5 +504,6 @@ libraries = {
 }
 autoplay = "idle"
 
-[node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("8_ydqf1")
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_ku60i")
+autoplay = true
