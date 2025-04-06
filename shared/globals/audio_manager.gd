@@ -6,6 +6,7 @@ var players: Array[AudioStreamPlayer] = []
 var busy_players: Dictionary[AudioStreamPlayer, bool] = {}
 var playing_sounds: Dictionary[int, bool] = {} # sound_type -> bool
 var sounds: Dictionary[int, String] = {} # sound_type -> path
+var sound_volumes: Dictionary[int, float] = {} # sound_type -> volume
 
 func _ready():
 	for i in max_players:
@@ -14,16 +15,19 @@ func _ready():
 		players.append(player)
 		busy_players[player] = false
 
-	Logger.log_info(self.name, "Sound manager ready, added %d players" % max_players)
+	Logger.log_info(self.name, "ready, added %d players" % max_players)
 
-func add_sound(sound_type: int, path: String) -> void:
+func add_sound(sound_type: int, path: String, volume: float = 0.0) -> void:
 	if not ResourceLoader.exists(path):
 		Logger.log_error(self.name, "Sound path not found: %s" % path)
 		return
 
 	sounds[sound_type] = path
+	sound_volumes[sound_type] = volume
 
-func play_sound(sound_type: int, is_loop: bool = false):
+func play_sound(sound_type: int):
+	Logger.log_info(self.name, "Playing sound: %s" % str(sound_type))
+
 	if playing_sounds.get(sound_type):
 		return null
 
@@ -50,6 +54,7 @@ func play_sound(sound_type: int, is_loop: bool = false):
 	busy_players[player] = true
 
 	player.stream = stream
+	player.volume_db = sound_volumes[sound_type]
 	player.play()
 
 	await player.finished
@@ -59,9 +64,17 @@ func play_sound(sound_type: int, is_loop: bool = false):
 	busy_players[player] = false
 	player.stream = null
 
-	# If the sound is looped, play it again
-	if is_loop:
-		play_sound(sound_type, true)
+func rotate_sounds(sound_types: Array[int]):
+	Logger.log_info(self.name, "Setting up rotation for sounds: %s" % str(sound_types))
+
+	var current_index = 0
+	var current_sound_type = sound_types[current_index]
+
+	while true:
+		Logger.log_info(self.name, "Playing sound: %s" % str(current_sound_type))
+		await play_sound(current_sound_type)
+		current_index = (current_index + 1) % sound_types.size()
+		current_sound_type = sound_types[current_index]
 
 func _get_free_player() -> AudioStreamPlayer:
 	for player in players:

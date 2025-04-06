@@ -21,7 +21,8 @@ enum GameScreens {
 }
 
 enum GameSounds {
-	MAIN_MUSIC,
+	INNER_BEAST,
+	UNLIT_CORNERS,
 	NEW_LEVEL,
 	ENEMY_DEATH,
 	PLAYER_DEATH,
@@ -37,7 +38,8 @@ func _ready():
 	SM.add_scene(GameScreens.LEVEL5, "res://levels/level_5.tscn")
 	SM.add_scene(GameScreens.LEVEL6, "res://levels/level_6.tscn")
 
-	AM.add_sound(GameSounds.MAIN_MUSIC, "res://assets/soundtrack/inner_beast.wav")
+	AM.add_sound(GameSounds.INNER_BEAST, "res://assets/soundtrack/inner_beast.wav", -10.0)
+	AM.add_sound(GameSounds.UNLIT_CORNERS, "res://assets/soundtrack/unlit_corners_2.wav", -10.0)
 	AM.add_sound(GameSounds.NEW_LEVEL, "res://assets/sfx/new_lvl.wav")
 	AM.add_sound(GameSounds.ENEMY_DEATH, "res://assets/sfx/enemy_death.wav")
 	AM.add_sound(GameSounds.PLAYER_DEATH, "res://assets/sfx/player_death.wav")

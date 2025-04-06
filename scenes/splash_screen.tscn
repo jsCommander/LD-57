@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://lfd54t3x8ogf"]
+[gd_scene load_steps=14 format=3 uid="uid://lfd54t3x8ogf"]
 
 [ext_resource type="Script" uid="uid://cy3ld2r4ol3xx" path="res://scenes/splash_screen.gd" id="1_3mj2l"]
 [ext_resource type="Texture2D" uid="uid://bgf3qu7bllh7b" path="res://assets/splash_back.png" id="2_4gp4q"]
@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://c0docv145vxq6" path="res://assets/splash_title.png" id="6_5osyx"]
 [ext_resource type="Shader" uid="uid://4geb5ow36clx" path="res://shared/shaders/glow.gdshader" id="6_dhol4"]
 [ext_resource type="Texture2D" uid="uid://bq36bik6khow1" path="res://assets/splash_watch.png" id="6_w4c0s"]
-[ext_resource type="AudioStream" uid="uid://dhnyssxyixx3d" path="res://assets/soundtrack/unlit_corners_2.wav" id="10_vob37"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_w4c0s"]
 shader = ExtResource("6_dhol4")
@@ -149,9 +148,6 @@ theme_override_fonts/font = ExtResource("4_5osyx")
 theme_override_font_sizes/font_size = 42
 text = "Exit
 "
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("10_vob37")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

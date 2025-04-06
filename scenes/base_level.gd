@@ -14,7 +14,6 @@ func _ready():
 			enemies.append(child)
 			child.death.connect(_on_enemy_death)
 
-
 func _on_player_death() -> void:
 	SM.restart_scene()
 
