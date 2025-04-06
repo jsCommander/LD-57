@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=4 uid="uid://dk1rfpsjxg4wu"]
 
-[ext_resource type="Script" path="res://levels/level_5.gd" id="1_v5ho1"]
+[ext_resource type="Script" uid="uid://bcmvxg14vnk3k" path="res://levels/level_5.gd" id="1_v5ho1"]
 [ext_resource type="PackedScene" uid="uid://cxwpbqdjku22q" path="res://scenes/background.tscn" id="2_v5ho1"]
 [ext_resource type="TileSet" uid="uid://dltkbukrhnn1f" path="res://resources/tiles.tres" id="3_ldpug"]
 [ext_resource type="TileSet" uid="uid://c8npqyxoogpjs" path="res://resources/ladders.tres" id="4_8vr3t"]
@@ -24,7 +24,6 @@ tile_set = ExtResource("4_8vr3t")
 
 [node name="Player" parent="." instance=ExtResource("5_a58qw")]
 position = Vector2(-814, 302)
-max_hitpoint = 1
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 

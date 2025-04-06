@@ -1,30 +1,42 @@
-[gd_scene load_steps=7 format=4 uid="uid://cfy3q5lickf7s"]
+[gd_scene load_steps=9 format=4 uid="uid://cfy3q5lickf7s"]
 
 [ext_resource type="Script" uid="uid://bpud4um0c18kw" path="res://levels/level_1.gd" id="1_l53as"]
 [ext_resource type="PackedScene" uid="uid://deik5xqc7hnib" path="res://scenes/player.tscn" id="5_aerfg"]
 [ext_resource type="TileSet" uid="uid://dltkbukrhnn1f" path="res://resources/tiles.tres" id="6_btoec"]
+[ext_resource type="PackedScene" uid="uid://bwa1f84i6pd0k" path="res://scenes/door.tscn" id="7_3sk1a"]
 [ext_resource type="PackedScene" uid="uid://bxsicim2l68vv" path="res://scenes/simple_enemy.tscn" id="7_betor"]
 [ext_resource type="PackedScene" uid="uid://cxwpbqdjku22q" path="res://scenes/background.tscn" id="7_gwceb"]
 [ext_resource type="TileSet" uid="uid://c8npqyxoogpjs" path="res://resources/ladders.tres" id="7_l53as"]
+[ext_resource type="PackedScene" uid="uid://cfcckfar7vcg6" path="res://scenes/next_level.tscn" id="8_l53as"]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_l53as")
 next_level = 2
 
 [node name="Parallax2D" parent="." instance=ExtResource("7_gwceb")]
+scroll_offset = Vector2(-1729, -1039)
 
 [node name="Player" parent="." instance=ExtResource("5_aerfg")]
 position = Vector2(-296, 170)
+ladder_speed = 200.0
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
 [node name="SimpleEnemy" parent="." instance=ExtResource("7_betor")]
-position = Vector2(694, -131)
+position = Vector2(579, -252)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAD9/wIAAAABAAEAAAD+/wIAAAACAAEAAAD//wIAAAACAAEAAAAAAAIAAAACAAEAAAABAAIAAAACAAEAAAACAAIAAAADAAEAAAADAAIAAAABAAEAAAAEAAIAAAACAAEAAAAFAAIAAAADAAEAAAAGAAIAAAABAAEAAAD8/wIAAAADAAEAAAD7/wIAAAADAAEAAAD7/wEAAAABAAEAAAD7/wAAAAADAAEAAAD7////AAABAAEAAAD7//7/AAACAAEAAAD7//3/AAACAAEAAAD8//3/AAACAAEAAAD9//3/AAACAAEAAAD+//3/AAABAAEAAAD///3/AAABAAEAAAAAAP3/AAACAAEAAAABAP3/AAABAAEAAAACAP3/AAABAAEAAAADAP3/AAABAAEAAAAEAP3/AAACAAEAAAAFAP3/AAADAAEAAAAGAP3/AAADAAEAAAAGAP7/AAABAAEAAAAGAP//AAABAAEAAAAGAAAAAAADAAEAAAAGAAEAAAADAAEAAAAFAAAAAAADAAEAAAAEAAAAAAACAAEAAAADAAAAAAABAAEAAAA=")
+tile_map_data = PackedByteArray("AAD9/wIAAAABAAEAAAD+/wIAAAACAAEAAAD//wIAAAACAAEAAAAAAAIAAAACAAEAAAABAAIAAAACAAEAAAACAAIAAAADAAEAAAADAAIAAAABAAEAAAAEAAIAAAACAAEAAAAFAAIAAAADAAEAAAAGAAIAAAABAAEAAAD8/wIAAAADAAEAAAD7/wIAAAADAAEAAAD7/wEAAAABAAEAAAD7/wAAAAADAAEAAAD7////AAABAAEAAAD7//7/AAACAAEAAAD7//3/AAACAAEAAAAGAP3/AAADAAEAAAAGAP7/AAABAAEAAAAGAP//AAABAAEAAAD7//z/AAADAAEAAAD8//z/AAABAAEAAAD9//z/AAACAAEAAAD+//z/AAABAAEAAAD///z/AAABAAEAAAAAAPz/AAABAAEAAAABAPz/AAACAAEAAAACAPz/AAADAAEAAAADAPz/AAACAAEAAAAEAPz/AAABAAEAAAAFAPz/AAADAAEAAAAGAPz/AAACAAEAAAAFAP//AAACAAEAAAAEAP//AAADAAEAAAADAP//AAABAAEAAAACAP//AAACAAEAAAAIAAIAAAADAAEAAAAIAP//AAACAAEAAAAHAP//AAABAAEAAAAGAAMAAAACAAEAAAAGAAQAAAABAAEAAAAGAAUAAAACAAEAAAAIAAUAAAACAAEAAAAIAAQAAAABAAEAAAAIAAMAAAACAAEAAAAGAAYAAAABAAEAAAAGAAcAAAADAAEAAAAGAAgAAAABAAEAAAAGAAkAAAACAAEAAAAIAAYAAAABAAEAAAAIAAcAAAADAAEAAAAIAAgAAAACAAEAAAAIAAkAAAACAAEAAAAGAAoAAAACAAEAAAAIAAoAAAACAAEAAAAJAAIAAAABAAEAAAAJAAEAAAACAAEAAAAJAAAAAAACAAEAAAAJAP//AAABAAEAAAA=")
 tile_set = ExtResource("6_btoec")
 
 [node name="ladders" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAD8////AAACAAMAAAD8//7/AAACAAMAAAD8/wAAAAACAAMAAAD8/wEAAAACAAMAAAD9//7/AAACAAMAAAD+//7/AAACAAMAAAD///7/AAACAAMAAAAAAP7/AAACAAMAAAABAP7/AAACAAMAAAACAP7/AAACAAMAAAA=")
+tile_map_data = PackedByteArray("AAD8////AAACAAMAAAD8//7/AAACAAMAAAD8/wAAAAACAAMAAAD8/wEAAAACAAMAAAD9//7/AAACAAMAAAD+//7/AAACAAMAAAD///7/AAACAAMAAAAAAP7/AAACAAMAAAABAP7/AAACAAMAAAACAP7/AAACAAMAAAAHAAIAAAACAAMAAAAHAAMAAAACAAMAAAAHAAQAAAACAAMAAAAHAAUAAAACAAMAAAAHAAYAAAACAAMAAAAHAAcAAAACAAMAAAAHAAgAAAACAAMAAAAHAAkAAAACAAMAAAAHAAoAAAACAAMAAAAHAAsAAAACAAMAAAA=")
 tile_set = ExtResource("7_l53as")
+
+[node name="Door" parent="." instance=ExtResource("7_3sk1a")]
+unique_name_in_owner = true
+position = Vector2(874, 223)
+
+[node name="NextLevel" parent="." instance=ExtResource("8_l53as")]
+position = Vector2(771, 386)
+next_level = 2
