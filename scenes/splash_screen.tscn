@@ -106,35 +106,46 @@ texture = ExtResource("2_vbcv6")
 
 [node name="patient" type="TextureRect" parent="back"]
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -1171.0
-offset_top = -626.0
-offset_bottom = -52.0
-grow_horizontal = 0
-grow_vertical = 0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -211.5
+offset_top = -88.0
+offset_right = 959.5
+offset_bottom = 486.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("4_a2ut7")
 
 [node name="player" type="TextureRect" parent="back"]
 layout_mode = 1
-offset_left = 257.0
-offset_top = 113.0
-offset_right = 905.0
-offset_bottom = 973.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -702.0
+offset_top = -428.0
+offset_right = -54.0
+offset_bottom = 432.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("3_3mj2l")
 
 [node name="watch" type="TextureRect" parent="back/player"]
 layout_mode = 1
-anchors_preset = 4
+anchors_preset = 8
+anchor_left = 0.5
 anchor_top = 0.5
+anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 467.999
-offset_top = -42.9998
-offset_right = 575.999
+offset_left = 143.999
+offset_top = -43.0
+offset_right = 251.999
 offset_bottom = 122.0
+grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(96, 13)
 texture = ExtResource("6_w4c0s")
@@ -142,14 +153,17 @@ texture = ExtResource("6_w4c0s")
 [node name="title" type="TextureRect" parent="back"]
 material = SubResource("ShaderMaterial_w4c0s")
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -1150.0
-offset_top = 58.0
-offset_right = -268.0
-offset_bottom = 380.0
-grow_horizontal = 0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -480.0
+offset_right = 690.0
+offset_bottom = -158.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("6_5osyx")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
