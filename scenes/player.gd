@@ -115,6 +115,7 @@ func _death():
 	AM.play_sound(G.GameSounds.PLAYER_DEATH)
 	await animation_player.animation_finished
 	EB.player_death.emit()
+	G.player_death_count += 1
 
 func _on_hit_box_body_entered(_body: Node2D) -> void:
 	if _body is BaseEnemy:
