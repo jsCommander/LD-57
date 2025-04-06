@@ -61,7 +61,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(568, 396), Vector2(568, 396), Vector2(568, 396)]
+"values": [Vector2(474, 360), Vector2(470, 365), Vector2(474, 360)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -86,9 +86,13 @@ _data = {
 script = ExtResource("1_3mj2l")
 next_scene = 1
 
-[node name="back" type="Sprite2D" parent="."]
+[node name="back" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("2_4gp4q")
-centered = false
 
 [node name="original" type="TextureRect" parent="."]
 visible = false
@@ -99,28 +103,53 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_vbcv6")
 
-[node name="patient" type="Sprite2D" parent="."]
-position = Vector2(745, 450)
+[node name="patient" type="TextureRect" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1171.0
+offset_top = -626.0
+offset_bottom = -52.0
+grow_horizontal = 0
+grow_vertical = 0
 texture = ExtResource("4_a2ut7")
-centered = false
 
-[node name="player" type="Sprite2D" parent="."]
-position = Vector2(258, 112)
+[node name="player" type="TextureRect" parent="."]
+anchors_preset = -1
+anchor_left = 0.135417
+anchor_top = 0.107407
+anchor_right = 0.472917
+anchor_bottom = 0.903704
 texture = ExtResource("3_3mj2l")
-centered = false
+metadata/_edit_use_anchors_ = true
 
-[node name="watch" type="Sprite2D" parent="player"]
-position = Vector2(568, 396)
+[node name="watch" type="TextureRect" parent="player"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.361111
+anchor_top = 0.312791
+anchor_right = 0.527778
+anchor_bottom = 0.504651
+offset_left = 334.0
+offset_top = 127.0
+offset_right = 334.0
+offset_bottom = 127.0
+pivot_offset = Vector2(96, 13)
 texture = ExtResource("6_w4c0s")
-centered = false
-offset = Vector2(-105, -4)
+metadata/_edit_use_anchors_ = true
 
 [node name="title" type="TextureRect" parent="."]
 material = SubResource("ShaderMaterial_w4c0s")
-offset_left = 771.0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1150.0
 offset_top = 58.0
-offset_right = 771.0
-offset_bottom = 58.0
+offset_right = -268.0
+offset_bottom = 380.0
+grow_horizontal = 0
 texture = ExtResource("6_5osyx")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
