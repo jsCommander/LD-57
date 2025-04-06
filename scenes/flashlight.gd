@@ -5,11 +5,13 @@ extends Area2D
 
 @onready var fire_sprite: Sprite2D = $Node2D/FireSprite
 @onready var damage_sound: AudioStreamPlayer2D = $DamageSound
+@onready var light: Sprite2D = $Light
 
 var current_hit_cooldown: float = 0.0
 
 func _ready() -> void:
 	Animations.shake(fire_sprite)
+	Animations.shake(light)
 
 func _physics_process(delta: float) -> void:
 	if current_hit_cooldown > 0.0:
