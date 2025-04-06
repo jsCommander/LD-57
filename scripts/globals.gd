@@ -4,6 +4,10 @@ var player: Node2D
 
 var gravity: float = 980.0
 
+var player_death_count: int = 0
+var time_played: float = 0.0
+var send_events: bool = false
+
 enum GameScreens {
 	SPLASH_SCREEN,
 	LEVEL1,
@@ -46,3 +50,6 @@ func _ready():
 	AM.add_sound(GameSounds.PLAYER_DEATH, "res://assets/sfx/player_death.wav")
 	
 	AM.rotate_sounds([G.GameSounds.INNER_BEAST, G.GameSounds.UNLIT_CORNERS])
+
+func _process(_delta: float) -> void:
+	time_played += _delta
