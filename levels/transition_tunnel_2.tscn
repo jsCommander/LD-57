@@ -1,11 +1,12 @@
-[gd_scene load_steps=10 format=4 uid="uid://rt4cvghxvffl"]
+[gd_scene load_steps=11 format=4 uid="uid://rt4cvghxvffl"]
 
-[ext_resource type="Script" uid="uid://db2rhqg007g0t" path="res://levels/transition_tunnel_1.gd" id="1_ey1w6"]
+[ext_resource type="Script" uid="uid://cgr4iq788c4rq" path="res://levels/transition_tunnel_2.gd" id="1_ey1w6"]
 [ext_resource type="PackedScene" uid="uid://cxwpbqdjku22q" path="res://scenes/background.tscn" id="2_ngohd"]
 [ext_resource type="PackedScene" uid="uid://deik5xqc7hnib" path="res://scenes/player.tscn" id="3_hcr1u"]
 [ext_resource type="TileSet" uid="uid://dltkbukrhnn1f" path="res://resources/tiles.tres" id="4_nby5x"]
 [ext_resource type="TileSet" uid="uid://c8npqyxoogpjs" path="res://resources/ladders.tres" id="5_ewsbq"]
 [ext_resource type="PackedScene" uid="uid://45iw8wflcc00" path="res://scenes/fade_text.tscn" id="6_excqq"]
+[ext_resource type="PackedScene" uid="uid://cfcckfar7vcg6" path="res://scenes/next_level.tscn" id="7_ngohd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mld13"]
 size = Vector2(1052, 530)
@@ -58,3 +59,7 @@ text = "Truth-light... don’t fail me now."
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FadeText3"]
 position = Vector2(236, 298.5)
 shape = SubResource("RectangleShape2D_ey1w6")
+
+[node name="NextLevel" parent="." instance=ExtResource("7_ngohd")]
+position = Vector2(2812, 896)
+next_level = 6

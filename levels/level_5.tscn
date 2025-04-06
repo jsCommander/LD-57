@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=4 uid="uid://dk1rfpsjxg4wu"]
 
-[ext_resource type="Script" path="res://levels/level_5.gd" id="1_v5ho1"]
+[ext_resource type="Script" uid="uid://bcmvxg14vnk3k" path="res://levels/level_5.gd" id="1_v5ho1"]
 [ext_resource type="PackedScene" uid="uid://cxwpbqdjku22q" path="res://scenes/background.tscn" id="2_v5ho1"]
 [ext_resource type="TileSet" uid="uid://dltkbukrhnn1f" path="res://resources/tiles.tres" id="3_ldpug"]
 [ext_resource type="TileSet" uid="uid://c8npqyxoogpjs" path="res://resources/ladders.tres" id="4_8vr3t"]
@@ -47,4 +47,4 @@ position = Vector2(2537, 735)
 
 [node name="NextLevel" parent="." instance=ExtResource("9_8vr3t")]
 position = Vector2(2434, 898)
-next_level = 6
+next_level = 9

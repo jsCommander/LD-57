@@ -84,7 +84,7 @@ _data = {
 
 [node name="SplashScreen" type="CanvasLayer"]
 script = ExtResource("1_3mj2l")
-next_scene = 1
+next_scene = 8
 
 [node name="back" type="TextureRect" parent="."]
 anchors_preset = 15
@@ -132,7 +132,7 @@ anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_left = 467.999
-offset_top = -42.9996
+offset_top = -42.9998
 offset_right = 575.999
 offset_bottom = 122.0
 grow_vertical = 2

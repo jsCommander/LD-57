@@ -13,9 +13,8 @@ enum GameScreens {
 	LEVEL5,
 	LEVEL6,
 	LEVEL7,
-	LEVEL8,
-	LEVEL9,
-	LEVEL10,
+	TUNNEL1,
+	TUNNEL2,
 	LOOSE_SCREEN,
 	WIN_SCREEN,
 }
@@ -37,6 +36,8 @@ func _ready():
 	SM.add_scene(GameScreens.LEVEL4, "res://levels/level_4.tscn")
 	SM.add_scene(GameScreens.LEVEL5, "res://levels/level_5.tscn")
 	SM.add_scene(GameScreens.LEVEL6, "res://levels/level_6.tscn")
+	SM.add_scene(GameScreens.TUNNEL1, "res://levels/transition_tunnel_1.tscn")
+	SM.add_scene(GameScreens.TUNNEL2, "res://levels/transition_tunnel_2.tscn")
 
 	AM.add_sound(GameSounds.INNER_BEAST, "res://assets/soundtrack/inner_beast.wav", -10.0)
 	AM.add_sound(GameSounds.UNLIT_CORNERS, "res://assets/soundtrack/unlit_corners_2.wav", -10.0)

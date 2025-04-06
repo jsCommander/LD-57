@@ -189,7 +189,10 @@ tracks/13/keys = {
 [sub_resource type="Animation" id="Animation_ns4yh"]
 resource_name = "death"
 length = 0.4
+<<<<<<< HEAD
 step = 0.1
+=======
+>>>>>>> e6d60b4288242851e44793a762e97f84e8eea3e9
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
