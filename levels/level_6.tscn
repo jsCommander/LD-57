@@ -13,6 +13,7 @@
 [node name="Level6" type="Node2D"]
 script = ExtResource("1_xn6mk")
 next_level = 12
+level_name = "Level6"
 
 [node name="Parallax2D" parent="." instance=ExtResource("2_3t5n2")]
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=4 uid="uid://brrmtidjxmmx7"]
 
 [ext_resource type="PackedScene" uid="uid://cxwpbqdjku22q" path="res://scenes/background.tscn" id="1_8l0e1"]
-[ext_resource type="Script" path="res://levels/level_3.gd" id="1_lfnxh"]
+[ext_resource type="Script" uid="uid://dleg1cmqj65of" path="res://levels/level_3.gd" id="1_lfnxh"]
 [ext_resource type="TileSet" uid="uid://dltkbukrhnn1f" path="res://resources/tiles.tres" id="3_jq78i"]
 [ext_resource type="TileSet" uid="uid://c8npqyxoogpjs" path="res://resources/ladders.tres" id="4_lsnkt"]
 [ext_resource type="PackedScene" uid="uid://deik5xqc7hnib" path="res://scenes/player.tscn" id="5_wj73x"]
@@ -19,6 +19,7 @@ size = Vector2(1053, 532)
 [node name="Level3" type="Node2D"]
 script = ExtResource("1_lfnxh")
 next_level = 4
+level_name = "Level3"
 
 [node name="Parallax2D" parent="." instance=ExtResource("1_8l0e1")]
 

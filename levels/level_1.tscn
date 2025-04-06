@@ -19,6 +19,7 @@ size = Vector2(1052, 345)
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_l53as")
 next_level = 2
+level_name = "Level1"
 
 [node name="Parallax2D" parent="." instance=ExtResource("7_gwceb")]
 scroll_offset = Vector2(-1729, -1039)
