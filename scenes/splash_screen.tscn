@@ -1,55 +1,125 @@
-[gd_scene load_steps=5 format=3 uid="uid://lfd54t3x8ogf"]
+[gd_scene load_steps=14 format=3 uid="uid://lfd54t3x8ogf"]
 
 [ext_resource type="Script" uid="uid://cy3ld2r4ol3xx" path="res://scenes/splash_screen.gd" id="1_3mj2l"]
+[ext_resource type="Texture2D" uid="uid://bgf3qu7bllh7b" path="res://assets/splash_back.png" id="2_4gp4q"]
+[ext_resource type="Texture2D" uid="uid://k8s38fx8at4g" path="res://assets/loading_screen.png" id="2_vbcv6"]
+[ext_resource type="Texture2D" uid="uid://566r4m5sjno1" path="res://assets/splash_player.png" id="3_3mj2l"]
 [ext_resource type="FontFile" uid="uid://c6pc4jiv0rtn5" path="res://assets/fonts/ZeroCool.woff2" id="4_5osyx"]
+[ext_resource type="Texture2D" uid="uid://d0o31lelttpy" path="res://assets/splash_patient.png" id="4_a2ut7"]
+[ext_resource type="Texture2D" uid="uid://c0docv145vxq6" path="res://assets/splash_title.png" id="6_5osyx"]
+[ext_resource type="Shader" uid="uid://4geb5ow36clx" path="res://shared/shaders/glow.gdshader" id="6_dhol4"]
+[ext_resource type="Texture2D" uid="uid://bq36bik6khow1" path="res://assets/splash_watch.png" id="6_w4c0s"]
 
-[sub_resource type="Resource" id="Resource_hsxvm"]
-metadata/__load_path__ = "res://assets/images/scary_background.png"
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w4c0s"]
+shader = ExtResource("6_dhol4")
+shader_parameter/glow_color = Color(0.0980392, 0.929412, 0.109804, 0.729412)
+shader_parameter/glow_power = 2.0
+shader_parameter/glow_radius = 1.0
+shader_parameter/glow_shift = 1.0
+shader_parameter/blink_speed = 3.0
+shader_parameter/blink_min = 0.5
+shader_parameter/blink_max = 1.0
 
-[sub_resource type="Resource" id="Resource_4gp4q"]
-metadata/__load_path__ = "res://assets/soundtrack/Epic intro (Cover).wav"
+[sub_resource type="Animation" id="Animation_w4c0s"]
+resource_name = "main"
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("player/watch:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(568, 396), Vector2(568, 396), Vector2(568, 396)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("player/watch:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -1.16105, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_vob37"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("player/watch:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(568, 396)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("player/watch:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vob37"]
+_data = {
+&"RESET": SubResource("Animation_vob37"),
+&"main": SubResource("Animation_w4c0s")
+}
 
 [node name="SplashScreen" type="CanvasLayer"]
 script = ExtResource("1_3mj2l")
-title = "LD 57"
-image = SubResource("Resource_hsxvm")
-audio = SubResource("Resource_4gp4q")
 next_scene = 1
 
-[node name="TextureRect" type="TextureRect" parent="."]
-unique_name_in_owner = true
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="back" type="Sprite2D" parent="."]
+texture = ExtResource("2_4gp4q")
+centered = false
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="original" type="TextureRect" parent="."]
 visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_vbcv6")
 
-[node name="TitleLabel" type="Label" parent="."]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(300, 300)
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -143.5
-offset_right = 143.5
-offset_bottom = 100.0
-grow_horizontal = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 3
-theme_override_constants/shadow_offset_y = 4
-theme_override_fonts/font = ExtResource("4_5osyx")
-theme_override_font_sizes/font_size = 128
-text = "SPLASH"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="patient" type="Sprite2D" parent="."]
+position = Vector2(745, 450)
+texture = ExtResource("4_a2ut7")
+centered = false
+
+[node name="player" type="Sprite2D" parent="."]
+position = Vector2(258, 112)
+texture = ExtResource("3_3mj2l")
+centered = false
+
+[node name="watch" type="Sprite2D" parent="player"]
+position = Vector2(568, 396)
+texture = ExtResource("6_w4c0s")
+centered = false
+offset = Vector2(-105, -4)
+
+[node name="title" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_w4c0s")
+position = Vector2(771, 58)
+texture = ExtResource("6_5osyx")
+centered = false
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 custom_minimum_size = Vector2(400, 200)
@@ -80,7 +150,13 @@ text = "Exit
 "
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-unique_name_in_owner = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_vob37")
+}
+autoplay = "main"
+speed_scale = 0.5
 
 [connection signal="button_down" from="VBoxContainer/StartButton" to="." method="_handle_start_pressed"]
 [connection signal="button_down" from="VBoxContainer/ExitButton" to="." method="_handle_exit_pressed"]

@@ -1,21 +1,17 @@
 extends CanvasLayer
 
-@export var title: String
-@export var image: Texture2D
-@export var audio: AudioStream
 @export var next_scene: G.GameScreens
-
-@onready var texture_rect: TextureRect = %TextureRect
-@onready var title_label: Label = %TitleLabel
-@onready var audio_stream_player: AudioStreamPlayer = %AudioStreamPlayer
+@onready var patient: Sprite2D = $patient
+@onready var player: Sprite2D = $player
+@onready var title: Sprite2D = $title
 
 func _ready() -> void:
-	title_label.text = title
-	texture_rect.texture = image
-	audio_stream_player.stream = audio
-	audio_stream_player.play()
+	Animations.shake(patient)
+	Animations.shake(player)
+	Animations.shake(title)
 
 func _handle_start_pressed() -> void:
+	Analytics.add_event("start pressed")
 	SM.change_scene(next_scene)
 
 func _handle_exit_pressed() -> void:
