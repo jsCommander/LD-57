@@ -32,6 +32,9 @@ func _on_player_detector_body_entered(_body: Node2D) -> void:
 		Logger.log_info(self.name, "Start chasing player")
 
 func _on_player_detector_body_exited(_body: Node2D) -> void:
+	if is_dead:
+		return
+		
 	if _body is Player:
 		timer.start()
 		Logger.log_info(self.name, "Start stopping timer")

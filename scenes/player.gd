@@ -18,6 +18,7 @@ enum State {
 var current_state: State = State.WALK
 var near_ladder: bool = false
 var is_on_ladder: bool = false
+var is_dead := false
 
 func _ready():
 	G.player = self
@@ -93,6 +94,9 @@ func _on_ladder_detector_body_entered(_body: Node2D) -> void:
 	near_ladder = true
 
 func _on_ladder_detector_body_exited(_body: Node2D) -> void:
+	if is_dead or not ladder_left_timer.is_inside_tree():
+		return
+	
 	ladder_left_timer.start()
 	Logger.log_info(self.name, 'ladder left, start timer')
 
@@ -105,6 +109,7 @@ func _on_ladder_left_timer_timeout() -> void:
 		Logger.log_info(self.name, 'stop to grab ladder')
 
 func _death():
+	is_dead = true
 	EB.player_death.emit()
 
 func _on_hit_box_body_entered(_body: Node2D) -> void:
