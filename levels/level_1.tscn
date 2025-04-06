@@ -34,7 +34,6 @@ tile_map_data = PackedByteArray("AAD8////AAACAAMAAAD8//7/AAACAAMAAAD8/wAAAAACAAM
 tile_set = ExtResource("7_l53as")
 
 [node name="Door" parent="." instance=ExtResource("7_3sk1a")]
-unique_name_in_owner = true
 position = Vector2(874, 223)
 
 [node name="NextLevel" parent="." instance=ExtResource("8_l53as")]

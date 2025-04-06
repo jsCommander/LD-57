@@ -32,5 +32,4 @@ ladder_speed = 200.0
 position = Vector2(511, 51)
 
 [node name="Door" parent="." instance=ExtResource("7_dfjjl")]
-unique_name_in_owner = true
 position = Vector2(963, 93)

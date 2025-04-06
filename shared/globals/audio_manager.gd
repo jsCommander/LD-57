@@ -64,8 +64,11 @@ func play_sound(sound_type: int):
 	busy_players[player] = false
 	player.stream = null
 
-func rotate_sounds(sound_types: Array[int]):
+func rotate_sounds(sound_types: Array[int], random: bool = false):
 	Logger.log_info(self.name, "Setting up rotation for sounds: %s" % str(sound_types))
+
+	if random:
+		sound_types.shuffle()
 
 	var current_index = 0
 	var current_sound_type = sound_types[current_index]

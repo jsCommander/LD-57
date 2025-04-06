@@ -43,3 +43,5 @@ func _ready():
 	AM.add_sound(GameSounds.NEW_LEVEL, "res://assets/sfx/new_lvl.wav")
 	AM.add_sound(GameSounds.ENEMY_DEATH, "res://assets/sfx/enemy_death.wav")
 	AM.add_sound(GameSounds.PLAYER_DEATH, "res://assets/sfx/player_death.wav")
+	
+	AM.rotate_sounds([G.GameSounds.INNER_BEAST, G.GameSounds.UNLIT_CORNERS])

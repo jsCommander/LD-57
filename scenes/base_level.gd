@@ -2,11 +2,12 @@ class_name BaseLevel extends Node2D
 
 @export var next_level: G.GameScreens
 
-@onready var door: Door = %Door
-
+var door: Door
 var enemies: Array[BaseEnemy] = []
 
 func _ready():
+	door = get_node_or_null("Door")
+
 	EB.player_death.connect(_on_player_death)
 
 	for child in get_children():
@@ -22,4 +23,5 @@ func _on_enemy_death(enemy: BaseEnemy) -> void:
 	Logger.log_info(self.name, "Enemy %s died" % enemy.name)
 
 	if enemies.size() == 0:
-		door.open()
+		if door:
+			door.open()
