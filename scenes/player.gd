@@ -60,11 +60,7 @@ func _process_moving(_delta):
 		velocity.x = move_toward(velocity.x, 0, speed)
 		animation_player.play("idle")
 
-	if velocity.x > 0:
-		body.scale.x = 1
-	elif velocity.x < 0:
-		body.scale.x = -1
-
+	Utils.look_in_direction_x(body, velocity.x)
 	
 func _process_ladder_moving(_delta):
 	var direction_y = Input.get_axis("move_up", "move_down")
@@ -111,6 +107,7 @@ func _on_ladder_left_timer_timeout() -> void:
 func _death():
 	EB.player_death.emit()
 
-func _on_hit_box_body_entered(body: Node2D) -> void:
-	if body is BaseEnemy:
-		_death()
+func _on_hit_box_body_entered(_body: Node2D) -> void:
+	if _body is BaseEnemy:
+		if not _body.is_dead:
+			_death()

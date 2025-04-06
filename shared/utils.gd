@@ -26,3 +26,19 @@ static func get_enum_key_name(_enum, key) -> String:
 
 static func get_timestamp() -> String:
 	return Time.get_datetime_string_from_system(true)
+
+static func look_in_direction_x(body: Node2D, direction_x: float) -> void:
+	if direction_x > 0:
+		if body.scale.x < 0:
+			body.scale.x = body.scale.x * -1
+	elif direction_x < 0:
+		if body.scale.x > 0:
+			body.scale.x = body.scale.x * -1
+
+static func look_in_direction_x_invert(body: Node2D, direction_x: float) -> void:
+	if direction_x > 0:
+		if body.scale.x > 0:
+			body.scale.x = body.scale.x * -1
+	elif direction_x < 0:
+		if body.scale.x < 0:
+			body.scale.x = body.scale.x * -1

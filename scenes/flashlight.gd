@@ -4,6 +4,7 @@ extends Area2D
 @export var hit_damage: int = 10
 
 @onready var fire_sprite: Sprite2D = $Node2D/FireSprite
+@onready var damage_sound: AudioStreamPlayer2D = $DamageSound
 
 var current_hit_cooldown: float = 0.0
 
@@ -20,4 +21,5 @@ func _physics_process(delta: float) -> void:
 	for body in overlapping_bodies:
 		if body is BaseEnemy:
 			body.hit(hit_damage)
+			damage_sound.play()
 			current_hit_cooldown = hit_cooldown

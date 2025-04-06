@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dsjux3rq4b4j3"]
+[gd_scene load_steps=10 format=3 uid="uid://dsjux3rq4b4j3"]
 
 [ext_resource type="Script" uid="uid://qf4pjbsdorbf" path="res://scenes/flashlight.gd" id="1_bh8a8"]
 [ext_resource type="Shader" uid="uid://4geb5ow36clx" path="res://shared/shaders/glow.gdshader" id="3_o7kai"]
 [ext_resource type="Texture2D" uid="uid://dbhx8dsmwgg7u" path="res://assets/latter.png" id="4_bis5n"]
+[ext_resource type="AudioStream" uid="uid://fsdkir15sxbo" path="res://assets/sfx/lamp click.wav" id="5_gdags"]
 [ext_resource type="Texture2D" uid="uid://6jbaj5hgnwsg" path="res://assets/latter_fire.png" id="5_o7kai"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qlg0r"]
@@ -51,3 +52,6 @@ texture = ExtResource("4_bis5n")
 [node name="FireSprite" type="Sprite2D" parent="Node2D"]
 position = Vector2(-4, 13)
 texture = ExtResource("5_o7kai")
+
+[node name="DamageSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_gdags")

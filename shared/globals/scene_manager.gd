@@ -33,6 +33,7 @@ func change_scene(new_scene_key: int):
 	if current_scene:
 		Logger.log_info(LOGGER_NAME, "Removing scene: %s" % current_scene.name)
 		current_scene.queue_free()
+		await current_scene.tree_exiting
 		Logger.log_debug(LOGGER_NAME, "Scene was removed: %s" % current_scene.name)
 		
 	var scene_path = scenes_dict.get(new_scene_key)
@@ -41,13 +42,11 @@ func change_scene(new_scene_key: int):
 		Logger.log_error(LOGGER_NAME, "Not found scene path for key: %s" % new_scene_key)
 		return
 
-	start_transition()
 	var scene_resource = load(scene_path)
-
 	var scene_instance = scene_resource.instantiate()
 	Logger.log_debug(LOGGER_NAME, "Scene instantiated: %s" % scene_resource.resource_path)
 
-	spawn.call_deferred("add_child",scene_instance)
+	spawn.call_deferred("add_child", scene_instance)
 	current_scene = scene_instance
 	Logger.log_info(LOGGER_NAME, "Scene %s is active" % scene_instance.name)
 	
