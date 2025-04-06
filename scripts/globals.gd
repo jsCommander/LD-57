@@ -43,11 +43,11 @@ func _ready():
 	SM.add_scene(GameScreens.TUNNEL1, "res://levels/transition_tunnel_1.tscn")
 	SM.add_scene(GameScreens.TUNNEL2, "res://levels/transition_tunnel_2.tscn")
 
-	AM.add_sound(GameSounds.INNER_BEAST, "res://assets/soundtrack/inner_beast.wav", -10.0)
-	AM.add_sound(GameSounds.UNLIT_CORNERS, "res://assets/soundtrack/unlit_corners_2.wav", -10.0)
-	AM.add_sound(GameSounds.NEW_LEVEL, "res://assets/sfx/new_lvl.wav")
-	AM.add_sound(GameSounds.ENEMY_DEATH, "res://assets/sfx/enemy_death.wav")
-	AM.add_sound(GameSounds.PLAYER_DEATH, "res://assets/sfx/player_death.wav")
+	AM.add_sound(GameSounds.INNER_BEAST, "res://assets/soundtrack/inner_beast.mp3", -10.0)
+	AM.add_sound(GameSounds.UNLIT_CORNERS, "res://assets/soundtrack/unlit_corners.mp3", -10.0)
+	AM.add_sound(GameSounds.NEW_LEVEL, "res://assets/sfx/new_lvl.ogg")
+	AM.add_sound(GameSounds.ENEMY_DEATH, "res://assets/sfx/enemy_death.ogg")
+	AM.add_sound(GameSounds.PLAYER_DEATH, "res://assets/sfx/player_death.ogg")
 	
 	AM.rotate_sounds([G.GameSounds.INNER_BEAST, G.GameSounds.UNLIT_CORNERS])
 
