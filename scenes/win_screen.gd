@@ -8,7 +8,10 @@ extends CanvasLayer
 func _ready():
 	timer.wait_time = wait_time
 	timer.start()
-	Analytics.add_event('win_screen_viewed')
+	Analytics.add_event('win_screen_viewed', {
+		deaths = G.player_death_count,
+		time_played = G.time_played,
+	})
 
 func _on_timer_timeout():
 	SM.change_scene(next_scene)
